@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>AGS Flow Solution — Experience List 2014 to 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/globe.gl@2.46.1/dist/globe.gl.min.js"></script>
+<style>
+  :root {
+    --blue-50:#F0F9FF;--blue-100:#E0F2FE;--blue-200:#BAE6FD;--blue-300:#7DD3FC;
+    --blue-400:#38BDF8;--blue-500:#0EA5E9;--blue-600:#0284C7;--blue-700:#0369A1;
+    --blue-800:#075985;--blue-900:#0C4A6E;
+    --white:#FFFFFF;--ink:#0B2540;--muted:#5A7891;
+    --shadow-sm:0 2px 6px rgba(2,132,199,.08);
+    --shadow-md:0 8px 24px rgba(2,132,199,.14);
+    --shadow-lg:0 18px 50px rgba(2,132,199,.22);
+    --radius:14px;
+    --font-display:"Manrope","Plus Jakarta Sans",system-ui,sans-serif;
+    --font-body:"Plus Jakarta Sans",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:var(--font-body);color:var(--ink);
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #DAF0FB 0%, transparent 60%),
+      radial-gradient(900px 500px at 110% 10%, #C9E8F8 0%, transparent 55%),
+      linear-gradient(180deg,#F4FBFE 0%, #E9F6FD 100%);
+    min-height:100vh;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  button{font-family:inherit;cursor:pointer;border:0;background:none}
+
+  /* HEADER */
+  header.app-header{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:saturate(140%) blur(10px);
+    background:rgba(255,255,255,.78);
+    border-bottom:1px solid rgba(2,132,199,.12);
+  }
+  .header-inner{max-width:1400px;margin:0 auto;padding:14px 22px;
+    display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:14px;min-width:0}
+  .logo-wrap{width:58px;height:58px;border-radius:14px;background:#fff;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:var(--shadow-sm);border:1px solid #E1F0FA;flex:0 0 auto}
+  .logo-wrap img{width:48px;height:48px;object-fit:contain}
+  .brand-text{min-width:0}
+  .brand-text h1{font-family:var(--font-display);
+    font-size:clamp(1.05rem,2.2vw,1.45rem);font-weight:800;
+    letter-spacing:-.01em;color:var(--blue-800);line-height:1.15}
+  .brand-text p{color:var(--muted);font-size:.82rem;font-weight:500;margin-top:2px}
+  .nav-tabs{margin-left:auto;display:flex;gap:8px;background:#fff;
+    padding:6px;border-radius:999px;box-shadow:var(--shadow-sm);border:1px solid #E1F0FA}
+  .nav-tabs button{padding:9px 18px;border-radius:999px;
+    font-weight:700;font-size:.85rem;color:var(--muted);transition:all .22s ease}
+  .nav-tabs button.active{background:linear-gradient(135deg,var(--blue-500),var(--blue-700));
+    color:#fff;box-shadow:0 6px 14px rgba(2,132,199,.32)}
+  .nav-tabs button:hover:not(.active){color:var(--blue-700);background:var(--blue-50)}
+
+  main{max-width:1400px;margin:0 auto;padding:22px}
+  .page{display:none;animation:fadeIn .35s ease}
+  .page.active{display:block}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+  /* INTRO */
+  .intro{position:relative;
+    background:
+      linear-gradient(135deg,#ffffff 0%,#F0F9FF 60%, #E0F2FE 100%);
+    border-radius:24px;padding:38px 36px;box-shadow:var(--shadow-md);
+    border:1px solid #DCEEF8;overflow:hidden;margin-bottom:22px}
+  .intro::before{content:"";position:absolute;inset:auto -100px -140px auto;
+    width:420px;height:420px;
+    background:radial-gradient(circle,#BAE6FD 0%,transparent 70%);opacity:.55;pointer-events:none}
+  .intro::after{content:"";position:absolute;top:-80px;left:-80px;
+    width:260px;height:260px;
+    background:radial-gradient(circle,rgba(125,211,252,.35) 0%,transparent 65%);
+    pointer-events:none}
+  .intro-eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--font-display);font-weight:700;font-size:.72rem;
+    text-transform:uppercase;letter-spacing:.14em;color:var(--blue-700);
+    background:rgba(125,211,252,.18);
+    padding:6px 12px;border-radius:999px;
+    border:1px solid rgba(56,189,248,.25);
+    margin-bottom:14px;
+  }
+  .intro-eyebrow::before{
+    content:"";width:6px;height:6px;border-radius:50%;background:var(--blue-500);
+    box-shadow:0 0 8px var(--blue-500);
+  }
+  .intro-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:center;position:relative;z-index:1}
+  .intro h2{font-family:var(--font-display);font-size:clamp(1.6rem,3.4vw,2.45rem);
+    font-weight:800;letter-spacing:-.025em;color:var(--blue-900);line-height:1.08}
+  .intro h2 span{background:linear-gradient(135deg,var(--blue-500),var(--blue-700));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .intro p.lead{margin-top:16px;color:var(--blue-800);font-size:1.02rem;
+    font-weight:500;line-height:1.6;max-width:560px}
+  .quick-stats{margin-top:26px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .stat{background:#fff;border:1px solid #DCEEF8;border-radius:14px;padding:16px 12px;
+    box-shadow:var(--shadow-sm);text-align:center;
+    transition:transform .2s ease, box-shadow .2s ease;
+    position:relative;overflow:hidden}
+  .stat::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--blue-400),var(--blue-600));
+    opacity:0;transition:opacity .2s ease;
+  }
+  .stat:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+  .stat:hover::before{opacity:1}
+  .stat .num{font-family:var(--font-display);font-weight:800;font-size:1.55rem;
+    color:var(--blue-700);letter-spacing:-.02em}
+  .stat .lbl{font-size:.7rem;font-weight:700;color:var(--muted);
+    text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+  .globe-launch{position:relative;display:flex;align-items:center;justify-content:center;min-height:280px}
+  .globe-btn{position:relative;width:230px;height:230px;border-radius:50%;
+    background:radial-gradient(circle at 30% 25%,#7DD3FC 0%,#0EA5E9 38%,#0369A1 100%);
+    cursor:pointer;
+    box-shadow:0 22px 50px rgba(2,132,199,.45),
+      inset -22px -28px 60px rgba(3,52,90,.45),
+      inset 22px 28px 60px rgba(186,230,253,.55);
+    transition:transform .4s cubic-bezier(.2,.8,.2,1.2);
+    display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .globe-btn::before{content:"";position:absolute;inset:0;border-radius:50%;
+    background:radial-gradient(ellipse at 55% 35%,rgba(255,255,255,.5),transparent 40%);pointer-events:none}
+  .globe-btn svg.globe-svg{width:88%;height:88%;color:rgba(255,255,255,.85);
+    animation:spin 28s linear infinite}
+  @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+  .globe-btn:hover{transform:scale(1.04)}
+  .globe-btn:active{transform:scale(.98)}
+  .globe-cta{position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);
+    background:#fff;color:var(--blue-700);padding:10px 18px;border-radius:999px;
+    font-weight:800;font-size:.85rem;box-shadow:var(--shadow-md);
+    white-space:nowrap;border:1px solid #DCEEF8;letter-spacing:.02em}
+  .globe-orbit{position:absolute;width:300px;height:300px;border-radius:50%;
+    border:1px dashed rgba(14,165,233,.35);animation:spin 30s linear infinite reverse;pointer-events:none}
+  .globe-orbit::before,.globe-orbit::after{content:"";position:absolute;
+    width:10px;height:10px;border-radius:50%;box-shadow:0 0 12px currentColor}
+  .globe-orbit::before{top:-5px;left:50%;background:#00BBF9;color:#00BBF9}
+  .globe-orbit::after{bottom:-5px;left:30%;background:#F15BB5;color:#F15BB5}
+
+  /* GLOBE SECTION (3D) */
+  .map-section{background:#fff;border-radius:24px;box-shadow:var(--shadow-md);
+    border:1px solid #DCEEF8;overflow:hidden}
+  .map-toolbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    padding:20px 24px;border-bottom:1px solid #E6F2F9;
+    background:linear-gradient(180deg,#F7FCFE,#FFFFFF)}
+  .map-toolbar h3{font-family:var(--font-display);font-size:1.08rem;font-weight:800;
+    color:var(--blue-800);display:flex;align-items:center;gap:10px;letter-spacing:-.005em}
+  .map-toolbar h3 .toolbar-count{
+    font-size:.7rem;font-weight:700;color:var(--blue-600);
+    background:rgba(125,211,252,.18);padding:3px 9px;border-radius:999px;
+    letter-spacing:.04em;text-transform:uppercase;margin-left:4px;
+    border:1px solid rgba(56,189,248,.2);
+  }
+  .pulse-dot{width:10px;height:10px;border-radius:50%;background:var(--blue-500);
+    box-shadow:0 0 0 0 rgba(14,165,233,.6);animation:pulse 1.6s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(14,165,233,.6)}
+    70%{box-shadow:0 0 0 10px rgba(14,165,233,0)}
+    100%{box-shadow:0 0 0 0 rgba(14,165,233,0)}}
+  .toolbar-right{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .auto-rotate-toggle{display:inline-flex;align-items:center;gap:8px;
+    padding:8px 14px;background:#fff;border:1px solid #DCEEF8;border-radius:10px;
+    font-size:.82rem;font-weight:700;color:var(--blue-700);transition:all .15s ease}
+  .auto-rotate-toggle:hover{background:var(--blue-50)}
+  .auto-rotate-toggle.active{background:linear-gradient(135deg,var(--blue-500),var(--blue-700));
+    color:#fff;border-color:transparent}
+  .auto-rotate-toggle svg{width:14px;height:14px}
+  .filter-wrap{position:relative}
+  .filter-btn{display:inline-flex;align-items:center;gap:8px;
+    padding:10px 16px;border-radius:12px;
+    background:linear-gradient(135deg,var(--blue-500),var(--blue-700));
+    color:#fff;font-weight:700;font-size:.85rem;box-shadow:var(--shadow-sm);
+    transition:transform .15s ease, box-shadow .2s ease}
+  .filter-btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-md)}
+  .filter-btn svg{width:16px;height:16px}
+  .filter-menu{position:absolute;right:0;top:calc(100% + 8px);
+    background:#fff;min-width:340px;max-width:90vw;border-radius:14px;
+    box-shadow:var(--shadow-lg);border:1px solid #DCEEF8;padding:8px;z-index:30;
+    display:none;max-height:70vh;overflow:auto}
+  .filter-menu.open{display:block;animation:menuIn .18s ease}
+  @keyframes menuIn{from{opacity:0;transform:translateY(-6px)}
+    to{opacity:1;transform:translateY(0)}}
+  .filter-menu .menu-title{font-size:.7rem;font-weight:800;color:var(--muted);
+    text-transform:uppercase;letter-spacing:.08em;padding:8px 12px 6px;
+    display:flex;align-items:center;justify-content:space-between}
+  .filter-search{padding:6px 8px}
+  .filter-search input{width:100%;padding:9px 12px;border-radius:10px;
+    border:1px solid #DCEEF8;font-family:inherit;font-size:.85rem;color:var(--ink)}
+  .filter-search input:focus{outline:none;border-color:var(--blue-400);
+    box-shadow:0 0 0 3px rgba(56,189,248,.18)}
+  .filter-menu button.country-item{width:100%;text-align:left;padding:10px 12px;
+    border-radius:10px;display:flex;align-items:center;gap:10px;
+    font-weight:600;font-size:.85rem;color:var(--ink);transition:background .15s ease;line-height:1.3}
+  .filter-menu button.country-item:hover{background:var(--blue-50)}
+  .filter-menu .swatch{width:12px;height:12px;border-radius:5px;flex:0 0 auto;
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
+  .filter-menu .loc-info{flex:1;min-width:0}
+  .filter-menu .loc-name{font-weight:700;color:var(--blue-800);font-size:.83rem;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .filter-menu .loc-country{font-size:.7rem;color:var(--muted);font-weight:600;margin-top:1px}
+  .filter-menu .count-badge{margin-left:auto;background:var(--blue-50);
+    color:var(--blue-700);font-size:.72rem;font-weight:700;padding:3px 8px;border-radius:999px;flex:0 0 auto}
+
+  /* 3D GLOBE */
+  .globe-wrap{position:relative;
+    background:radial-gradient(ellipse at 50% 40%,#0B2540 0%,#061425 70%,#020812 100%);
+    overflow:hidden;height:min(72vh,640px)}
+  #globe3D{position:absolute;inset:0;width:100%;height:100%}
+  .globe-loading{position:absolute;inset:0;display:flex;align-items:center;
+    justify-content:center;color:#BAE6FD;font-weight:700;gap:12px;z-index:6}
+  .globe-loading .spinner{width:26px;height:26px;border:3px solid rgba(186,230,253,.25);
+    border-top-color:#7DD3FC;border-radius:50%;animation:spin 1s linear infinite}
+  .stars-bg{position:absolute;inset:0;pointer-events:none;
+    background-image:
+      radial-gradient(1px 1px at 20px 30px,rgba(255,255,255,.7),transparent),
+      radial-gradient(1px 1px at 60px 80px,rgba(255,255,255,.5),transparent),
+      radial-gradient(1.5px 1.5px at 130px 140px,rgba(255,255,255,.8),transparent),
+      radial-gradient(1px 1px at 200px 50px,rgba(255,255,255,.6),transparent),
+      radial-gradient(1px 1px at 280px 120px,rgba(255,255,255,.4),transparent),
+      radial-gradient(1.5px 1.5px at 340px 200px,rgba(255,255,255,.7),transparent),
+      radial-gradient(1px 1px at 410px 30px,rgba(255,255,255,.5),transparent),
+      radial-gradient(1px 1px at 480px 170px,rgba(255,255,255,.6),transparent);
+    background-size:500px 250px;opacity:.7;
+    animation:starsDrift 100s linear infinite}
+  @keyframes starsDrift{from{background-position:0 0}to{background-position:-500px -250px}}
+  .globe-overlay-info{position:absolute;top:18px;left:18px;z-index:5;
+    background:rgba(11,37,64,.55);backdrop-filter:blur(10px);
+    color:#fff;padding:10px 14px;border-radius:12px;
+    border:1px solid rgba(255,255,255,.12);max-width:280px}
+  .globe-overlay-info .gi-title{font-family:var(--font-display);font-weight:800;
+    font-size:.85rem;color:#BAE6FD;letter-spacing:.02em}
+  .globe-overlay-info .gi-sub{font-size:.72rem;color:rgba(255,255,255,.7);
+    margin-top:2px;line-height:1.4}
+  .globe-overlay-info .gi-stats{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
+  .globe-overlay-info .gi-stat{font-size:.72rem;color:#fff}
+  .globe-overlay-info .gi-stat strong{color:#7DD3FC;font-weight:800;font-size:.95rem;display:block}
+  .globe-controls{position:absolute;top:18px;right:18px;z-index:5;
+    display:flex;flex-direction:column;gap:6px;
+    background:rgba(11,37,64,.55);backdrop-filter:blur(10px);
+    padding:6px;border-radius:14px;border:1px solid rgba(255,255,255,.12)}
+  .globe-controls button{width:36px;height:36px;border-radius:9px;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);
+    color:#fff;font-weight:800;font-size:1.1rem;
+    display:flex;align-items:center;justify-content:center;
+    transition:all .15s ease}
+  .globe-controls button:hover{background:linear-gradient(135deg,#0EA5E9,#0369A1);transform:translateY(-1px)}
+  .globe-controls .divider{height:1px;background:rgba(255,255,255,.12);margin:2px 4px}
+  .globe-controls button svg{width:16px;height:16px}
+  .globe-hint{position:absolute;left:18px;bottom:18px;z-index:5;
+    background:rgba(11,37,64,.55);backdrop-filter:blur(10px);color:#fff;
+    padding:8px 12px;border-radius:10px;font-size:.72rem;font-weight:600;
+    border:1px solid rgba(255,255,255,.12);pointer-events:none;
+    display:flex;align-items:center;gap:6px}
+  .globe-hint svg{width:14px;height:14px;color:#7DD3FC}
+  .globe-legend{position:absolute;right:18px;bottom:18px;z-index:5;
+    background:rgba(11,37,64,.55);backdrop-filter:blur(10px);color:#fff;
+    padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.12);
+    font-size:.72rem;font-weight:600;max-width:200px}
+  .globe-legend .gl-title{color:#BAE6FD;font-weight:800;letter-spacing:.05em;
+    text-transform:uppercase;font-size:.66rem;margin-bottom:6px}
+  .globe-legend .gl-row{display:flex;align-items:center;gap:8px;margin-top:4px}
+  .globe-legend .gl-dot{width:10px;height:10px;border-radius:50%}
+  .globe-legend .gl-arc{width:24px;height:2px;border-radius:1px;
+    background:linear-gradient(90deg,transparent,#7DD3FC,transparent);
+    animation:arcMove 1.5s linear infinite}
+  @keyframes arcMove{from{background-position:-24px 0}to{background-position:24px 0}}
+
+  /* TOOLTIP - rendered as DOM by globe.gl */
+  .globe-tt{background:rgba(11,37,64,.95);color:#fff;padding:10px 14px;
+    border-radius:10px;font-family:var(--font-body);font-size:.78rem;font-weight:600;
+    box-shadow:var(--shadow-md);border:1px solid rgba(255,255,255,.1);
+    max-width:280px;line-height:1.4;pointer-events:none}
+  .globe-tt .tt-name{font-weight:800;font-size:.88rem;color:#BAE6FD}
+  .globe-tt .tt-country{font-size:.7rem;color:rgba(255,255,255,.7);margin-top:2px;display:flex;align-items:center;gap:4px}
+  .globe-tt .tt-stats{display:flex;gap:10px;margin-top:6px;padding-top:6px;
+    border-top:1px solid rgba(255,255,255,.12)}
+  .globe-tt .tt-stat{font-size:.72rem}
+  .globe-tt .tt-stat strong{color:#7DD3FC;font-weight:800;display:block}
+  .globe-tt .tt-cta{margin-top:6px;font-size:.7rem;color:#7DD3FC;font-style:italic}
+
+  /* SHIP MARKERS on the globe — emoji on a colored disc badge */
+  /* .ship-marker is the OUTER wrapper that globe.gl positions via inline transform.
+     It must NOT have its own transform or animated transform, or globe.gl's
+     positioning gets overridden and every marker stacks at (0,0). */
+  .ship-marker{
+    --ship-size:36px;
+    --ship-color:#00BBF9;
+    width:var(--ship-size);height:var(--ship-size);
+    cursor:pointer;
+    pointer-events:auto;
+  }
+  /* .ship-anchor sits INSIDE .ship-marker and owns all visual transforms,
+     centering, animations, and hover effects. */
+  .ship-anchor{
+    position:relative;
+    width:100%;height:100%;
+    transform:translate(-50%,-50%);
+    animation:shipBob 3.6s ease-in-out infinite;
+    will-change:transform;
+  }
+  .ship-badge{
+    width:100%;height:100%;border-radius:50%;
+    background:radial-gradient(circle at 30% 25%, rgba(255,255,255,.35) 0%, transparent 55%), var(--ship-color);
+    border:2.5px solid #fff;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:
+      0 4px 12px rgba(0,0,0,.55),
+      0 0 0 1px rgba(0,0,0,.18),
+      0 0 16px var(--ship-color);
+    position:relative;
+    transition:transform .25s cubic-bezier(.2,.8,.2,1.3), box-shadow .2s ease;
+  }
+  .ship-badge::after{
+    /* outer pulse ring */
+    content:"";position:absolute;inset:-5px;border-radius:50%;
+    border:2px solid var(--ship-color);
+    opacity:.5;
+    animation:shipPulse 2.6s ease-out infinite;
+  }
+  .ship-emoji{
+    font-size:calc(var(--ship-size) * 0.6);
+    line-height:1;
+    filter:drop-shadow(0 1px 2px rgba(0,0,0,.55));
+    font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",emoji,sans-serif;
+    user-select:none;
+  }
+  /* small record-count chip on the badge */
+  .ship-count{
+    position:absolute;top:-6px;right:-6px;
+    min-width:18px;height:18px;padding:0 5px;
+    background:#fff;color:var(--ship-color);
+    border:1.5px solid var(--ship-color);
+    border-radius:999px;
+    font-size:10px;font-weight:800;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 2px 5px rgba(0,0,0,.4);
+    font-family:var(--font-display);
+    z-index:2;
+    line-height:1;
+  }
+  /* always-visible name label below the ship */
+  .ship-label{
+    position:absolute;top:calc(100% + 8px);left:50%;
+    transform:translateX(-50%);
+    background:rgba(11,37,64,.88);
+    color:#fff;
+    font-family:var(--font-display);font-weight:700;
+    font-size:10px;letter-spacing:.02em;
+    padding:3px 8px;border-radius:6px;
+    white-space:nowrap;
+    box-shadow:0 2px 6px rgba(0,0,0,.5);
+    border:1px solid rgba(125,211,252,.4);
+    pointer-events:none;
+    max-width:140px;overflow:hidden;text-overflow:ellipsis;
+    backdrop-filter:blur(6px);
+    text-align:center;
+  }
+  .ship-label::before{
+    content:"";position:absolute;top:-4px;left:50%;
+    transform:translateX(-50%) rotate(45deg);
+    width:6px;height:6px;
+    background:rgba(11,37,64,.88);
+    border-left:1px solid rgba(125,211,252,.4);
+    border-top:1px solid rgba(125,211,252,.4);
+  }
+  .ship-anchor:hover .ship-badge{
+    transform:scale(1.35);
+    box-shadow:
+      0 6px 18px rgba(0,0,0,.7),
+      0 0 0 4px var(--ship-color),
+      0 0 28px var(--ship-color);
+  }
+  .ship-anchor:hover .ship-label{
+    background:rgba(2,132,199,.95);
+    border-color:rgba(125,211,252,.7);
+  }
+  .ship-marker:hover{z-index:10}
+
+  /* HQ MARKER — circular AGS logo with golden ring & pulsing glow */
+  .hq-glow{
+    position:absolute;inset:-25%;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,217,61,.55) 0%,rgba(255,217,61,.18) 50%,transparent 75%);
+    animation:hqGlowPulse 2.8s ease-in-out infinite;
+    pointer-events:none;
+  }
+  .hq-badge{
+    position:relative;
+    width:100%;height:100%;border-radius:50%;
+    background:#fff;
+    border:3px solid #FFD93D;
+    padding:5px;
+    box-shadow:
+      0 5px 16px rgba(0,0,0,.6),
+      0 0 0 3px rgba(255,217,61,.35),
+      0 0 26px rgba(255,217,61,.75);
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .25s cubic-bezier(.2,.8,.2,1.3), box-shadow .2s ease;
+  }
+  .hq-badge img{
+    width:100%;height:100%;
+    object-fit:contain;border-radius:50%;
+    display:block;
+  }
+  .hq-marker .ship-label{
+    background:linear-gradient(135deg,#FFD93D,#F59E0B);
+    color:#3D2C00;
+    font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-size:10px;
+    border-color:rgba(255,217,61,.7);
+  }
+  .hq-marker .ship-label::before{
+    background:#FFD93D;border-color:rgba(255,217,61,.7);
+  }
+  .hq-marker .ship-anchor:hover .hq-badge{
+    transform:scale(1.18);
+    box-shadow:
+      0 6px 20px rgba(0,0,0,.75),
+      0 0 0 4px #FFD93D,
+      0 0 32px #FFE57A;
+  }
+
+  /* Bobbing on inner anchor — relative translateY only, doesn't affect globe.gl positioning */
+  @keyframes shipBob{
+    0%,100%{transform:translate(-50%,-50%) translateY(0)}
+    50%{transform:translate(-50%,-50%) translateY(-3px)}
+  }
+  @keyframes shipPulse{
+    0%{transform:scale(1);opacity:.55}
+    70%{transform:scale(1.65);opacity:0}
+    100%{transform:scale(1.65);opacity:0}
+  }
+  @keyframes hqGlowPulse{
+    0%,100%{transform:scale(1);opacity:.85}
+    50%{transform:scale(1.2);opacity:1}
+  }
+  .ship-tip{max-width:280px}
+
+  /* LEGEND BELOW GLOBE */
+  .country-legend{display:flex;flex-wrap:wrap;gap:8px;
+    padding:14px 22px;border-top:1px solid #E6F2F9;background:#F7FCFE}
+  .legend-item{display:inline-flex;align-items:center;gap:8px;
+    padding:6px 12px;background:#fff;border-radius:999px;
+    border:1px solid #E1F0FA;font-size:.8rem;font-weight:700;color:var(--blue-800);
+    box-shadow:var(--shadow-sm);cursor:pointer;transition:transform .15s ease}
+  .legend-item:hover{transform:translateY(-1px)}
+  .legend-item .dot{width:11px;height:11px;border-radius:50%}
+  .legend-item .lcount{background:var(--blue-50);color:var(--blue-700);
+    font-size:.7rem;padding:2px 7px;border-radius:999px}
+
+  /* MODAL */
+  .modal-overlay{position:fixed;inset:0;background:rgba(7,89,133,.55);
+    backdrop-filter:blur(6px);display:none;align-items:center;
+    justify-content:center;z-index:100;padding:18px;animation:fadeIn .25s ease}
+  .modal-overlay.open{display:flex}
+  .modal{background:#fff;border-radius:22px;width:100%;max-width:1100px;
+    max-height:92vh;box-shadow:var(--shadow-lg);
+    display:flex;flex-direction:column;overflow:hidden;
+    animation:popIn .3s cubic-bezier(.2,.9,.3,1.2)}
+  @keyframes popIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+  .modal-header{padding:20px 24px;color:#fff;
+    display:flex;align-items:center;gap:14px;position:relative}
+  .modal-header .country-flag{width:46px;height:46px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(255,255,255,.22);backdrop-filter:blur(6px);
+    font-size:1.4rem;font-weight:800}
+  .modal-header h2{font-family:var(--font-display);font-size:1.25rem;
+    font-weight:800;letter-spacing:-.01em;line-height:1.2}
+  .modal-header .sub{font-size:.82rem;font-weight:600;opacity:.9;margin-top:2px}
+  .modal-close{margin-left:auto;width:38px;height:38px;border-radius:12px;
+    background:rgba(255,255,255,.18);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .2s ease}
+  .modal-close:hover{background:rgba(255,255,255,.32)}
+  .modal-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:10px;padding:16px 24px;background:#F7FCFE;border-bottom:1px solid #E6F2F9}
+  .modal-stats .stat{padding:10px 8px}
+  .modal-body{overflow:auto;padding:0;flex:1}
+  table.data-table{width:100%;border-collapse:collapse;font-size:.84rem}
+  table.data-table thead{position:sticky;top:0;z-index:1;
+    background:linear-gradient(180deg,#EAF6FC,#DBEEF9)}
+  table.data-table th{text-align:left;padding:12px 14px;font-weight:800;
+    color:var(--blue-800);font-size:.74rem;text-transform:uppercase;
+    letter-spacing:.06em;border-bottom:1px solid #C9E3F1;white-space:nowrap}
+  table.data-table td{padding:11px 14px;border-bottom:1px solid #EEF6FB;
+    color:var(--ink);vertical-align:top}
+  table.data-table tbody tr{transition:background .15s ease}
+  table.data-table tbody tr:hover{background:#F0F9FF}
+  table.data-table tbody tr:nth-child(even){background:rgba(240,249,255,.45)}
+  table.data-table tbody tr:nth-child(even):hover{background:#F0F9FF}
+  .qty-pill{display:inline-block;min-width:34px;text-align:center;
+    background:var(--blue-50);color:var(--blue-700);font-weight:800;
+    padding:3px 9px;border-radius:999px;font-size:.78rem}
+
+  /* DATA PAGE */
+  .data-card{background:#fff;border-radius:24px;box-shadow:var(--shadow-md);
+    border:1px solid #DCEEF8;overflow:hidden}
+  .data-toolbar{padding:18px 22px;border-bottom:1px solid #E6F2F9;
+    background:linear-gradient(180deg,#F7FCFE,#FFFFFF);
+    display:grid;grid-template-columns:1fr auto auto auto;gap:12px;align-items:center}
+  .data-toolbar h3{font-family:var(--font-display);font-size:1.1rem;
+    font-weight:800;color:var(--blue-800)}
+  .data-toolbar .sub{font-size:.8rem;color:var(--muted);font-weight:600;margin-top:2px}
+  .search-wrap{position:relative;min-width:230px}
+  .search-wrap input{width:100%;padding:11px 12px 11px 38px;border-radius:12px;
+    border:1px solid #DCEEF8;background:#fff;font-family:inherit;
+    font-size:.88rem;color:var(--ink);
+    transition:border-color .2s ease, box-shadow .2s ease}
+  .search-wrap input:focus{outline:none;border-color:var(--blue-400);
+    box-shadow:0 0 0 4px rgba(56,189,248,.18)}
+  .search-wrap svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);
+    color:var(--muted);width:18px;height:18px}
+  .country-select{padding:11px 14px;border-radius:12px;border:1px solid #DCEEF8;
+    background:#fff;font-family:inherit;font-size:.88rem;font-weight:600;
+    color:var(--ink);cursor:pointer;max-width:240px}
+  .country-select:focus{outline:none;border-color:var(--blue-400)}
+  .table-wrap{overflow:auto;max-height:70vh}
+  .empty-state{padding:60px 30px;text-align:center;color:var(--muted)}
+  .empty-state svg{width:48px;height:48px;color:var(--blue-300);margin-bottom:10px}
+  .pagination{display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;gap:10px;padding:14px 22px;border-top:1px solid #E6F2F9;background:#F7FCFE}
+  .pagination .info{font-size:.82rem;color:var(--muted);font-weight:600}
+  .page-btns{display:flex;gap:6px}
+  .page-btns button{width:36px;height:36px;border-radius:10px;background:#fff;
+    border:1px solid #DCEEF8;color:var(--blue-700);font-weight:800;
+    font-size:.85rem;transition:all .15s ease}
+  .page-btns button:hover:not(:disabled){background:var(--blue-50)}
+  .page-btns button.active{background:linear-gradient(135deg,var(--blue-500),var(--blue-700));
+    color:#fff;border-color:transparent}
+  .page-btns button:disabled{opacity:.4;cursor:not-allowed}
+
+  /* FOOTER */
+  footer{text-align:center;color:var(--muted);font-size:.78rem;font-weight:500;padding:24px 16px 30px}
+  footer span{color:var(--blue-700);font-weight:700}
+  .footer-details{max-width:760px;margin:14px auto 0;
+    background:#fff;border:1px solid #DCEEF8;border-radius:14px;
+    box-shadow:var(--shadow-sm);padding:14px 18px;
+    display:flex;flex-direction:column;gap:8px;color:var(--blue-800)}
+  .footer-row{display:flex;align-items:center;justify-content:center;gap:10px;
+    flex-wrap:wrap;font-size:.78rem;font-weight:600;color:var(--blue-800);line-height:1.45}
+  .footer-row svg{width:14px;height:14px;color:var(--blue-500);flex:0 0 auto}
+  .footer-row .fr-item{display:inline-flex;align-items:center;gap:6px}
+  .footer-row a{color:var(--blue-700);text-decoration:none;font-weight:700;
+    border-bottom:1px dashed transparent;transition:border-color .2s ease}
+  .footer-row a:hover{border-bottom-color:var(--blue-500)}
+  .footer-row .fr-divider{color:var(--blue-300);font-weight:800}
+  .footer-reg{padding-top:8px;margin-top:2px;border-top:1px solid #EEF6FB;
+    color:var(--muted);font-size:.72rem;letter-spacing:.02em;text-transform:uppercase}
+  .footer-reg strong{color:var(--blue-700);letter-spacing:0;font-size:.78rem}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .intro-grid{grid-template-columns:1fr;gap:28px}
+    .globe-launch{min-height:240px;order:-1}
+    .globe-btn{width:200px;height:200px}
+    .globe-orbit{width:260px;height:260px}
+    .quick-stats{grid-template-columns:repeat(2,1fr)}
+    .data-toolbar{grid-template-columns:1fr 1fr;gap:10px}
+    .data-toolbar > div:first-child{grid-column:1/-1}
+    .nav-tabs button{padding:8px 14px;font-size:.8rem}
+    .globe-wrap{height:min(60vh,520px)}
+    .globe-overlay-info{max-width:200px;padding:8px 10px}
+    .globe-legend{max-width:160px;padding:8px 10px}
+  }
+  @media(max-width:600px){
+    .ship-label{font-size:9px;padding:2px 6px;max-width:90px}
+    .ship-marker{--ship-size:30px !important}
+    .ship-marker.hq-marker{--ship-size:50px !important}
+    .header-inner{padding:12px 14px;gap:10px}
+    .logo-wrap{width:50px;height:50px;border-radius:12px}
+    .logo-wrap img{width:42px;height:42px}
+    .brand-text h1{font-size:.98rem}
+    .brand-text p{font-size:.72rem}
+    main{padding:14px}
+    .intro{padding:22px;border-radius:20px}
+    .quick-stats{grid-template-columns:repeat(2,1fr)}
+    .map-toolbar{padding:14px}
+    .globe-wrap{height:min(54vh,460px)}
+    .globe-overlay-info{font-size:.7rem;max-width:160px;padding:7px 9px;top:10px;left:10px}
+    .globe-overlay-info .gi-stats{gap:6px}
+    .globe-controls{top:10px;right:10px;padding:4px}
+    .globe-controls button{width:32px;height:32px;font-size:1rem}
+    .globe-hint{display:none}
+    .globe-legend{font-size:.66rem;padding:7px 9px;right:10px;bottom:10px}
+    .modal{max-height:96vh;border-radius:18px}
+    .modal-header{padding:16px}
+    .modal-header h2{font-size:1.02rem}
+    .modal-stats{padding:12px;grid-template-columns:repeat(3,1fr)}
+    table.data-table th,table.data-table td{padding:9px 10px;font-size:.78rem}
+    .data-toolbar{grid-template-columns:1fr;padding:14px}
+    .country-legend{padding:10px 14px}
+    .legend-item{font-size:.74rem;padding:5px 10px}
+    .nav-tabs{padding:4px;gap:4px;width:100%;justify-content:center}
+    .nav-tabs button{flex:1;padding:8px 10px;font-size:.78rem}
+    .footer-details{padding:12px 14px;margin:12px 6px 0}
+    .footer-row{font-size:.74rem;gap:8px}
+    .footer-reg{font-size:.68rem}
+    .footer-reg strong{font-size:.74rem}
+  }
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="logo-wrap">
+        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wgARCADIAMgDASIAAhEBAxEB/8QAHAABAAICAwEAAAAAAAAAAAAAAAcIBQYBAgQD/8QAGgEBAAIDAQAAAAAAAAAAAAAAAAQFAgMGAf/aAAwDAQACEAMQAAABtSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADT4Xy0GdPzF9WsbPzXSDUfXeH4it9eUceeGe0CfUuesBm5UTftE3uk+iRKeWkHbvfKq2qg2cvPQrLM1qPpMWZuK1YabDtf1qJ6M8N6iaTvHY12YnqrE/VdntNW7IVF26/ZcKqdrMcjBx7XWMmq/4Owr7W0b2nwWVbtdlafZ3Vttc1L0c/f7KwjDZmuTHIBAM41+s6zKYGzHUptP1cZYuKewdPrgwPU20a3CobdKXE9sIWCxVVaVBliBbddDz+94nB/Pm+j1SL7Y6tNh1csHVO6FjXbKOZ6YBisr4MsK+fOc+Lepy3T79am1qfrVve19RYXdMRn6S6q1rtx9dtavE+bx9o0iqto9t2TfpxtTria3HkePWPRl/fIPtRxzo3BEmAAAAAAQp8pi4IP8ABYHghBOXyIM2KVPoQr8Zo8JFsx4zYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/xAAnEAACAgICAAUFAQEAAAAAAAAEBQMGAQIABxARFBUgExYwNnASMf/aAAgBAQABBQL+nWtvslSq7+xkY/B5ZQkMebo6fE61WxFakVKxD43s9gUT05qU5U8s9rhrsSvaw2/JVPdjxgWd7Cy/B2MXuYfyssfdUnhZ32qBbPPOxKriKNCu8OxluhCaix/Tq/Hh+zNtUsaYrnHqvyvnz22xprUMZe2mwLvanPWLHx7EYZKe00bBdl8WAMTMMAKJYHxiLsEfTrj7LgYqIyHxZWARbsW4s7LhFWs5/N6C615utsCjkN3aRxVm5K1ENs9DZC64AUnczWhSPwJhofrZ9s7WHr79l4xciq8GP35/CK7amPN6A65sjsCvmbCb5/WUl8U7yKplthgJGmsqqDgDeFnzy8vjaz9C7JnrfBGCutyxo/QrIOU5aplXcuQ+R7LTicCWXjETY0JtW3yoT7iacqaps114cpDZ6ndaAzZa1HVRN7cuh5XKuojD+JpWgIlCg3bWHm2uNtXIGVbXrJn/AIm52UnztjTfMe6Jto6Wca481fKP+rXDeaOuU5t7sj5ZVkbVNytwbDIfgxaDKR7jdI2w1GswSSEI2FiMewHWDXJoI4cLGEio9TdFrbeeCMqGyUcpVJXbGRXSl9zUsNLFZV8CjnXh+SEbMX1y6t2GatnBW1SdHabkEMuqFSlbk/EwEdhFiuKsczW1WeDDRBwlCQnQ4rarHPt1XyFAuGm8Dq8tZZk68T75j68T6ZErSsLn/PBhXVrTO3XSjbIVLUA7Yx5Y/MT2RGI7edhyhgLOyCWEzbtIpcyXdjGsN2/Zcgx8/ZB+gRl3lgI17WFlznt0DEenaoe2gBOTQvy7ADbY2AG30wEPrvsCNvz0cGOSLhZZNwR5ddxoZN8LhMchQLh9y68tNH/mP//EACwRAAIBAwIGAQIHAQAAAAAAAAECAwAEEQUSEyEiMUFhECORFBUkUGCBseH/2gAIAQMBAT8B/d726kWfoPIUjB1DDzTuI1LN2qOaa+chTtUUbKM+T96t0kiuTGWJGM1fXJt06e5qO0V4wzkkn3VkrpvVznB+JLhE5dz6o3kviE1+ZKOUiEVIqSW42tls5+9WMu2HbJyxWpyfRAHk1pY+iT7qSdI+Xc+qN1Ju3LCavJxOAHUqRVrdtENjdQripjOaDBhkfN424pCPP+U2nwHxVk6rcbGUf9rUoy8GR4rSpBho/wC6ngWUZPetPHGlw57UZFMnBYeM1PYxFSUXnWmhZJDlR8tux096/C3HF424Zrq2+6bTpWfibhmoxJtxLin07a/EgbBr9YV2kCrSxe3feWq6tnlZZIzgiiLt12nA91bWy2y7R/A//8QALhEAAgEDAgUCAwkAAAAAAAAAAQIDAAQRBRITITFBYRAiFCORFSRQUWCBobHh/9oACAECAQE/AfxeytI2g945mnUoxU9qRDIwVetSQw2KAsNzGheyj8vpVw8ctqJFUA5xVhbC4f3dBUl2ySFUAAHir1kfYyDGR6R27vz6DzQs4u8wr7NY843BqNnjuTuXC4x9Kv4t026PnmtMj+cSewrVT84DxUcDyc+g80LWPbtacVZwG3JMbBgaurRZTvX2n+K4T5xiipU4PrZrtDznt/dLqM471eozW+9WP+VpsgSfB71qsRysn7VbztEcDpWoEQxZQdaEbCPjKe+KgvpQwV25VqRaOMYY8/Vdufd0r4q24XB2nFe3d4pdRiVOHtOKkMe7MWaTUdycO4XIr7mG3Amry+S4TYFq1uUiVo5RkGgbRG3DJ8Vc3LXLbj+g/wD/xABCEAACAQICBQYJCQgDAAAAAAABAgMEEQASBRMhMUEQImFxkaEUICMyQlFSYrEwNVNygZPB0fAzcHOCorLh8UNjkv/aAAgBAQAGPwL950tREQJrhY7+v/V8Uy1Mkfg7OA9kts8Xy75pT5sSeccajRcAhv7IzH7SdmM1RppoifRR2/xjNT6WeY+zrmU4MM1TKki70mUH44NRVZc+sKjKLbOQLbXVTjmx/icNN4caKlBtmj5vZbfgvS6cmmceizsl+84io3qnzmURskqgm97fI0ujoQXKKZGUev8A0O/kpZybvlyv9YbDytNsaZubEp4nBkkZpp5W3neThIVA1x2yv7Tcoq8vladhzvdOz8sUfvZj/UeSqqGN8zm3QOGKDV7tX38e/k0bMqHLKVdiBxX/AEPkCSbAccV+lXF0TzL9Owf0jFVTWsqvzfqnaMVVCx/7U+B/Dl1F+ZTqF+07T+HZiiU7lbP2C/iS0019VILG2IqaHZHGLC55KiBtjRuVx4JVXakJuGG+P/GFlgkWWNtzKfE1Zzz1H0EC53xah0YaOP2pLZ/6sXqJWfoeoxcQK/VKMZtXWQgcYmJHdh4Z5FqoWGVkmHDrG3Dw+By0wdsxKtrB+eIaqgrqcPkyOszavq34pqoy0uqBs5FVH5p38cc7SEB+o2b4YzxRyiPg7plv27caQv8ATMMRfUb4cnlpPKHzYkGZ2+zGXRuiZKdPpKgWbv2YvUSsfdM4t2DF9Sjn+KMXEFVHbjC1/wC3GSrEdZb0aqMMe3fjylPNQv7UDaxf/Lbe/Gs0bpqmtxjnvHm6wdnfgNUzU1PLxC1CMD1bcc7SFP8AyyA/DF6ZZZIvpShVe/f4yaOioKerJsjZxZsx94YuHaif2c2tX8MPJ4ZT6tBmJObd2YvNpEz+5SxH4tbEVZS0gEhuCZTnZSOStHtNnH2i+KFjuZsnaLck0Mcpp5JFsJV3riSoi0xNUJGMzASspt24+car704p9Iz6VnFOJLiMyM2ex6+S1VTRzdLDb24Jpp5aY+o88YEc+koYydqmSNxfsBxebSqye7TQsx77Yp6uKDXtIgcPUc4j7N3jTVEnmRqWOKrSM20pdv5m/R5CCLg4qqXhG9h1cO7FTQMdj+VTr4/h2ckOkYxcL5OX8DhXU2ZTcHENSm8izr7LcRyVn8F/hyUP8395xWPBI0UigHMhsd4viBmbNNH5OS++45KmKQc5VLofUw5KCNvOES38XXVcuqjvlva+3HgdFm1JN5JGFs3RieGrzR6xswkC3GEqKd9ZC+5sGepk1UQ3tjwikzFMgVmItmP6tiGqi8+Nr29fRiOJZGiqH2CJ149e7DxSqHjcWZTxw0tIrVNJv2bWTrwWTykLftIjx/zgHwpYH4pPzbYqlWrilleNkRI3DG5HRyCnMTJ4ObZzue5J2Yqqf6WNl7sFspeFtksX644DLWxxn2ZjkI7cTQUs61NTKpQas3C9N8JUVCFKFDfb/wAnQPGEdTCkyA3yuL7cfN1L90MfN1N90MLDBGsUS7lXcMGKojWaM+i4uMfN1N90MfN1L9yuFliooI5F3MqWtyk1FHG7H0rWbtGNiSp9WTG2OWT60n5YvFQwg+srmPfylqikjdz6Y2N2jFwJl6BJgMtIJGHGU5sWHy+kaRqYywwFY4WTYZZMyqw27NhbuONG1NJSoRWRO2Wc7VIdV9fScUvkKVUaSGF4s51rl/SQeoYr6VaKE+DysquzG1lzb+k5dnXjZo+NY/C4oSc+2NXkKc4e1ze/DxUcUEkOQW1+aN0JYC7ggbNu77cGcaPhjLU8E0Ykk87OTf8AtOKFQKWOKSmhqXM7Mpkzm1ox6xhFj0fUOzWNg6bjly8ffGzhgv4FPawy85bk2U2tf3sa00FSKfeZebs8y+zo1i4gqDGYTKgfVtvW/D5ZQaeIhTmF0Gw+vARqeIoBYKUFrYjcQRh4xlRsguo6MPmp4mzkM10G08MHyMfObOeaNrevrw0j00Lu2xmaMEnFnp4mFgtig3DcMRu0SM0fmMV2r1Y2UsI23/Zj9cMTslFCDObyc29935DGolo4tVe+VRl+HUP3Zf/EACkQAQABAwIGAgIDAQEAAAAAAAERACExQYEQUWFxkaEgwbHwMNHxcOH/2gAIAQEAAT8h/wCnNJcMkk8uyi3kHtxhZ6Z+IJYM3XU6HVqe2wCE52Q2K5wNNHiFPy7mzyx7rK+An09lOm5DfAPueGSVDYA5mh+aHVjAieRu3NCC6dtBi81CgDNKxcn+G/uYlUW8I8F1w/YGYnfjB1P3S9DP+1cNAuIwU1kIXP8AQYOIoGAF1JHlVdcS/wBuUcH7bNbDwFD8Lax3fZwZ7W0EzPr5EnPgQYUq0KvGAcjF2Q3qIpM/sMJVnlhcWvNnDSKT2KCPLXvD2HwMtXDhzNqONhGZzP3wI9Rp6NDAwd5RzbWhdSmWH4IlhWduBjeKmHbH9IDxSjINAngYq7m732lWZlBJ3WlNGXEVRCWPaljm/wAQGsAt1rWMhdhlWnN8FXyT5mDZmdqO2gX+VSMHLHtIbopny9Rio3OnwHhkZS7A33xUusYAnWED3TSGdC8yKJPYEvtrv2zj5NTwyxGfU+a1xv8AGlMlxuNdh8jdRQrbrrIw70DPaI+JV3KCnsxdg0CUATf4hI6YteswkCe6f50kO0MP80t5KOEBKwKjD/zN8Y8NOUSRERnBo2DPBlkApzg+1OHDXvD2nCOfi97J+aYdeCVlCQx3r97+6mU4sG+OAKJrw5ViWLtkU+ZdJ8w+6MpsBj0Re6LQBqJuTTU4AEgnoJ0KCC3xXmO3YVYK6vXfrhBMKEdSnBMuXXNeRWAIheS3rwItotaE/mU8U/IgGiYpui2Gh+nZOBAcIe/Ax2KoJqyANYdJqxqbydAvch4HBdSZJH67PAiYSDpJMe/iWI5DUrmIBdGofx2AFwHKb35VPMCkiiIYv/tDDmRiTDDnqNAuWCC3cWL0p0RjM3DOIX5VzrlYGFdySrksRT0Q+1OVbiQ0o02RhchqdTeKEOzFwdZy6qMi2RPc2dmn1/CCA6C/CTXAK14hrtXPQXuoKMdwyyxqdF6UBi5eg/8AFWZUBZIULbVJtBTEz0c2ggj4xpGYDq9tG23H+qzuyP1U/AI8SM/lp4tCzCMVgd1fql/3PVNfeTkuOdtxleBqUF8k+5qbdIX+lIgniMbyaAEBBwykwCbwNRU3YeysFTnerb1QEEBYD+d0oCZAdAgjUY8GpAPeJguVMVzgTRVl85w31rWmYilGW0wwwblXlxWrMtTNa1m8jFKdtHZJWXguBqwRa7EvJBgM260WKJRW0Fclxyd60ibAKVNkqLlqp2TmBK9QDG8XhihUBkhRyIZ+w1yTcZky63/mTnk1CsotZnWko4YgrpEYajpxAcgosdqdSClEWTa6UKYSOnGH9qDWcEGIhYva1NGNqgtODBoVdR8E9xptXNSW5VFccw7FFuxIREAQ2DSLWqRNp3W2bZMhhgn/AJl//9oADAMBAAIAAwAAABDzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzDTzDTzzzxpfiI2PF2rz9IpF/mTqA65fxzyRld6s8UP7Yzz/AA/t3ybVc+H88888880swgog88888888888888888888888888888888888888888888888888888//EACcRAQABAwMEAQQDAAAAAAAAAAERACExQVFhgZGhscEQ0eHwUGBx/9oACAEDAQE/EP5eEOQlmyl33DWEMD3pIoF2mYZUZ4vu9jmhoZN5T9vFB3MEruH3orxjjdosZDMtdrx4pR2wJVtE+Z+iKB2gr4sdaO3pzPqGhsh5/R8VFwKW7qgYdu1RKyUXtbOvarm27gE+4ozWK9FISnYCvjHWKJKmIlsxmMNSqkyTns6c0eQHENzowp060OWQd2PdTBk+qZ2762Zz+2off/vwW7UCMyYmByq6RbetVTnph9zU6t5h6finrIBhFPxSupBOXMlXvJyYbxFH0DfWHiBKwSidW88r9b23ZOOtSlsbYYjanTi3mJ9xNN2SZsOamFTwOOZprCtHHfbiGmVMpEy+oqJZtCB8vPFcgN/vxeaSFNaC+DeslVy7/j+h/wD/xAAnEQEAAQMDBAEEAwAAAAAAAAABEQAhMUFRYYGRobEQUMHR8GBx4f/aAAgBAgEBPxD6vIzZW5cGx6krKGk7UEUqxRMMKcc22O7xSliG0I/PmlymSA2X8Un5zzsU2MkiGm9p80MbcMAXmPt8AiTeQHm70KeW7xD5kpLAeP1PNTYKBsaJSTfvUiMANr3xp3q1t/IoeqV0gPbQkI3EB5z0mnQgmYLk4nJUIhMMY7mvFPiVzJd1JB69KTZa8E+qiDD8hjJtpdjH7ek9v9D5b91pG5hzErgA1m9TqsY65PUVEpaJez20PIUkiD5zQMYqMGIeKteRgyWmafku2knMo1mlI0LRwHza37oz0qBknfJM70a838THqYo+WBF0xUQIOUzxFGki1M9TfmSiHEjMQe5qVYvIr9jjmrCF4/fvaKCNFeQeXasXQwbf7/A//8QAJhABAQACAQQCAgIDAQAAAAAAAREAITFBUWFxEIEgkTChcMHwsf/aAAgBAQABPxD/AB7TKZfwuUy/wtxaDY920xH1lAoUQaBs24dsOPwnjL4foihbqBplSYztBovkXot6F5swgNqlvBHT1TBsDQePgn7jGcHHcdGqo9Ej0cXdJ77ald1xnB8FEpb6c66ogG0ISKIq6VPqYJUrPpV1jyMBojyA+h3TJZ+Q0pL0L0cOP4NwMyxoTv6F8NLvsu+Ufb6B873EFpSw5nt30URgPWUUgAdOgBoIGsLosmwbL5kOxeVX4NMv6B0vU9RHu4TJG8+x/ph4wQqArao/RP29cN0vp+1fer8/Clg+MUlCGU4/HdIva5cW8t2AFVewYrjTrnW53F6Yz4A52P0m9jl+Eqr01/uT38olTu8F7kRgRNjFBzyPkAgz04AqMRBx8nNc1JV5VTi6wMY8OagnhIj2TKPUUMr3EdobFUGpkdnleNThOo7OuQ+TEkKJvHDvpddLjupSHHdr0LTviVLdIfA0egy6K71cIV23APwAe9ZVoj1KrJRS0mNwjIj5EiaG5XbcjBLKpASLCdnkywDUwJaFsQJyMcKxz+iLYyJV8214ddI9HFXUCvZR/QZ59+9X+r8QmEK3isXVTucW1Dnh0H3rObrEol6j/Ri9c3zH2GGprf7UsRnJrv0OlCvRzj64gq9VAPS9ZJaS7x13rWwdBm0zICnNmuwE43yvV5z+whf1kGc69BJ7hO6Y8nFUJXu/i/kt6BInVqhyNY3BGn72Iz2e2U/d7Ko9gLC550L1jD3D0OFOqO68oKh0IM6Y7ro2C0faPY4YGymC5ZHGI5QipSCI9tDnnAe0Y5VSAFTaDLgZMcUk8pmOjZLwHWcGKiUh5+CfUmbEIBnpC/a87nsYuKilKFFLyYhzqfEMF+1fWKslyFRpQUtBOXAAABoDp+POFtbVMPLIeUw3+paBBPBqOmvhliD6IRE7TDbCLyTa9p+8OMhY1pI8tPS+HigseZLeKL5OJhY+LqjyIYd2dXhAx03svKOvxyNwvb4xId/94nr8+2QQSy1gLluoECna3nqr2+G4502kT0sruh8Py51T3Xk0+vxtl4NAAUKJx0yOqkaXV7JCYVBJaq8z0GrsR2QeXHW3HJRbqAkBs6ZMbpPSAFSvYyqJY1k2cL0B7MiOmCSN8IieHFvEBbjYBXWaXsYAuSqFEcUZjS5KHYdrg06rxyiiOE3Lch7ImGpQju7W/cYmKQjxImDSsIPXXxqS88R1d6QcbV3CSg2voofSj9ZAoL0qZThWL3Rloe+Ci3cIF8pOzjBYk0qlUCwK2Um8N6VNQoTy07EoN4AgAGgPxGE0uIEAPUA+3IpR/wBVwPAf9OhgmBAtgoHFR9uGhAwhVI9nDov/AJN4Cj9AZ1tCZolENaX4lz/3CV8ZftxUldaD9V/eEhp00f7M4nct6Uz94YABACAfHKCyWeWT7XFNK5z/AGH+8ZEVg73u35wcAwBADgD+fQBgK1WKDwkGeTOBMrKphV48Apktw0IlwAUKbGSCHbgPBbFANAIBUxU7E7hViFRAETQYRrBJakCiBXcBgUOh0VVMYu3CsAWYTcs5wChGhDeAg4T4tBe0hSgJi5L3TCWiCFhFSQ1zNaxbDO3DeixxIGlBimOoIZ1H+aCY5kgHZ2Rtd441eEoNQIChpQvGcyTShklbnUG8SvYO69+AWp0xhMUEqHQ2EEeyG8bn1hUNSRBC8E4yk546ADCyvAOzGJGo9dKheJ0cYeAAABPNQpPKtyGccM1wgEJAigy7w1AjmpcSabFQIIGAAAQOn+Mf/9k=" alt="AGS Logo">
+      </div>
+      <div class="brand-text">
+        <h1>AGS FLOW SOLUTION PTE LTD</h1>
+        <p>Experience List • 2014 to 2026 • An ISO 9001-2015 Company</p>
+      </div>
+    </div>
+    <div class="nav-tabs" role="tablist">
+      <button id="tab-map" class="active" onclick="switchPage('map')">🌐 Interactive Project Map</button>
+      <button id="tab-data" onclick="switchPage('data')">📊 Data Table</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- PAGE 1: 3D GLOBE -->
+  <section id="page-map" class="page active">
+    <div class="intro">
+      <div class="intro-grid">
+        <div>
+          <div class="intro-eyebrow">ISO 9001-2015 Certified · Global Marine & Energy</div>
+          <h2>Global Projects, <span>Engineered Locally</span></h2>
+          <p class="lead">A fully interactive 3D atlas of every AGS Flow Solution delivery from 2014 to 2026 — <strong>49 project sites</strong> across <strong>23 countries</strong>, traced live from our Singapore headquarters to offshore fields and shipyards worldwide.</p>
+          <div class="quick-stats">
+            <div class="stat"><div class="num" id="qsRecords">0</div><div class="lbl">Records</div></div>
+            <div class="stat"><div class="num" id="qsLocations">0</div><div class="lbl">Locations</div></div>
+            <div class="stat"><div class="num" id="qsCustomers">0</div><div class="lbl">Customers</div></div>
+            <div class="stat"><div class="num">12+</div><div class="lbl">Years</div></div>
+          </div>
+        </div>
+        <div class="globe-launch">
+          <div class="globe-orbit"></div>
+          <button class="globe-btn" id="globeBtn" aria-label="Spin to 3D globe">
+            <svg class="globe-svg" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.4">
+              <circle cx="50" cy="50" r="44"/>
+              <ellipse cx="50" cy="50" rx="44" ry="18"/>
+              <ellipse cx="50" cy="50" rx="20" ry="44"/>
+              <ellipse cx="50" cy="50" rx="44" ry="34"/>
+              <path d="M6 50 H94"/><path d="M50 6 V94"/>
+            </svg>
+            <div class="globe-cta">Spin the Globe ↓</div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-section" id="mapSection">
+      <div class="map-toolbar">
+        <h3><span class="pulse-dot"></span> 3D Interactive Project Globe <span class="toolbar-count">49 locations · 328 projects</span></h3>
+        <div class="toolbar-right">
+          <button class="auto-rotate-toggle active" id="autoRotateBtn" aria-pressed="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+            Auto-rotate
+          </button>
+          <div class="filter-wrap">
+            <button class="filter-btn" id="filterBtn" aria-haspopup="true" aria-expanded="false">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
+              Filter Location
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="filter-menu" id="filterMenu" role="menu">
+              <div class="menu-title"><span>Jump to project location</span><span id="locCount" style="font-size:.7rem;color:var(--blue-700)">0</span></div>
+              <div class="filter-search">
+                <input type="text" id="filterSearch" placeholder="Search location, country…">
+              </div>
+              <div id="filterList"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="globe-wrap">
+        <div class="stars-bg"></div>
+        <div class="globe-loading" id="globeLoading"><div class="spinner"></div>Initialising 3D Earth…</div>
+        <div id="globe3D"></div>
+
+        <div class="globe-overlay-info">
+          <div class="gi-title">AGS Flow Solution HQ</div>
+          <div class="gi-sub">Yishun, Singapore → 49 destinations worldwide</div>
+          <div class="gi-stats" id="giStats"></div>
+        </div>
+
+        <div class="globe-controls">
+          <button id="zoomIn" title="Zoom in" aria-label="Zoom in">+</button>
+          <button id="zoomOut" title="Zoom out" aria-label="Zoom out">−</button>
+          <div class="divider"></div>
+          <button id="resetView" title="Reset to default view" aria-label="Reset view">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+          </button>
+          <button id="worldView" title="Top-down world" aria-label="Top-down view">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </button>
+        </div>
+
+        <div class="globe-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/><path d="M3.6 9h16.8"/><path d="M3.6 15h16.8"/><path d="M11.5 3a17 17 0 0 0 0 18"/><path d="M12.5 3a17 17 0 0 1 0 18"/></svg>
+          Drag to rotate · Scroll to zoom · Click a marker
+        </div>
+
+        <div class="globe-legend">
+          <div class="gl-title">Legend</div>
+          <div class="gl-row"><span class="gl-dot" style="background:#00BBF9;display:flex;align-items:center;justify-content:center;font-size:8px">🚢</span> Project ship</div>
+          <div class="gl-row"><span class="gl-arc"></span> Shipping route</div>
+          <div class="gl-row"><span class="gl-dot" style="background:#fff;border:1.5px solid #FFD93D;box-shadow:0 0 8px #FFD93D"></span> AGS HQ</div>
+        </div>
+      </div>
+
+      <div class="country-legend" id="countryLegend"></div>
+    </div>
+  </section>
+
+  <!-- PAGE 2: DATA TABLE -->
+  <section id="page-data" class="page">
+    <div class="data-card">
+      <div class="data-toolbar">
+        <div>
+          <h3>Complete Experience Data</h3>
+          <div class="sub">All 328 projects · 2014 to 2026 · searchable & filterable</div>
+        </div>
+        <div class="search-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="searchInput" placeholder="Search customer, product, project, location…">
+        </div>
+        <select class="country-select" id="countrySelect"><option value="">All Countries</option></select>
+        <select class="country-select" id="locationSelect"><option value="">All Locations</option></select>
+      </div>
+      <div class="table-wrap" id="tableWrap"></div>
+      <div class="pagination" id="pagination"></div>
+    </div>
+  </section>
+
+  <footer>
+    Powered by <span>AGS Flow Solution Pte Ltd</span> — Experience Dashboard © 2026
+    <div class="footer-details">
+      <div class="footer-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        2 Yishun Industrial Street 1, #07-06, North Point Bizhub, Singapore 768159
+      </div>
+      <div class="footer-row">
+        <span class="fr-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Tel: <a href="tel:+6567087426">67087426</a>
+        </span>
+        <span class="fr-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <a href="https://www.agsflow.com.sg" target="_blank" rel="noopener">www.agsflow.com.sg</a>
+        </span>
+      </div>
+      <div class="footer-row footer-reg">
+        <span class="fr-item">Company Registration No. <strong>201333059Z</strong></span>
+        <span class="fr-divider">•</span>
+        <span class="fr-item">GST No. <strong>201333059Z</strong></span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<!-- Location detail modal -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOnOverlay(event)">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-header" id="modalHeader">
+      <div class="country-flag" id="modalFlag">🌐</div>
+      <div style="min-width:0;flex:1">
+        <h2 id="modalTitle">Location</h2>
+        <div class="sub" id="modalSub">Project details</div>
+      </div>
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-stats" id="modalStats"></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+/* ==================== DATA ==================== */
+const RECORDS = [{"S.NO": "1", "JOB NO": "SO001", "CUSTOMER ID": "C003", "CUSTOMER NAME": "Harris Pye Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Globe Valve 1/2\" A105 800# SW", "QTY": "3", "PROJECT NAME": "SBM FPSO Project CEDADE", "PROJECT LOCATION": "Offshore Brazil, Santos Basin (SBM FPSO Conversion, Singapore Shipyard)"}, {"S.NO": "2", "JOB NO": "SO002", "CUSTOMER ID": "C003", "CUSTOMER NAME": "Harris Pye Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Ball Valve 3/4\" SS RF", "QTY": "1", "PROJECT NAME": "SBM FPSO Project CEDADE", "PROJECT LOCATION": "Offshore Brazil, Santos Basin (SBM FPSO Conversion, Singapore Shipyard)"}, {"S.NO": "3", "JOB NO": "SO003", "CUSTOMER ID": "C003", "CUSTOMER NAME": "Harris Pye Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Safety Valve 1/2\" Bronze BSPP", "QTY": "1", "PROJECT NAME": "SBM FPSO Project CEDADE", "PROJECT LOCATION": "Offshore Brazil, Santos Basin (SBM FPSO Conversion, Singapore Shipyard)"}, {"S.NO": "4", "JOB NO": "SO004", "CUSTOMER ID": "C003", "CUSTOMER NAME": "Harris Pye Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Globe Valve 1/2\" A105 800# SW", "QTY": "1", "PROJECT NAME": "SBM FPSO Project CEDADE", "PROJECT LOCATION": "Offshore Brazil, Santos Basin (SBM FPSO Conversion, Singapore Shipyard)"}, {"S.NO": "5", "JOB NO": "SO005", "CUSTOMER ID": "C004", "CUSTOMER NAME": "Nordic Flow Control Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "SS Ball Valve 1-1/2\" to 2-1/2\"", "QTY": "6", "PROJECT NAME": "Offshore Tug", "PROJECT LOCATION": "Singapore"}, {"S.NO": "6", "JOB NO": "SO006", "CUSTOMER ID": "C003", "CUSTOMER NAME": "Harris Pye Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Globe Valve 3\" Cast Steel", "QTY": "2", "PROJECT NAME": "SBM FPSO Project CEDADE", "PROJECT LOCATION": "Offshore Brazil, Santos Basin (SBM FPSO Conversion, Singapore Shipyard)"}, {"S.NO": "7", "JOB NO": "SO007", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Magnetic and Glass Level Gauge Range 400mm to 2000mm", "QTY": "36", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "8", "JOB NO": "SO008", "CUSTOMER ID": "C004", "CUSTOMER NAME": "Nordic Flow Control Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Double Flange Butterfly Valve Range 10\"", "QTY": "2", "PROJECT NAME": "", "PROJECT LOCATION": ""}, {"S.NO": "9", "JOB NO": "SO009", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Rotary Piston Type Flowmeter & Turbine Flow Meter Range 1-1/2\" to 4\"", "QTY": "16", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "10", "JOB NO": "SO010", "CUSTOMER ID": "C003", "CUSTOMER NAME": "Harris Pye Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Globe Valve 1\" A105 300# RF", "QTY": "4", "PROJECT NAME": "SBM FPSO Project CEDADE", "PROJECT LOCATION": "Offshore Brazil, Santos Basin (SBM FPSO Conversion, Singapore Shipyard)"}, {"S.NO": "11", "JOB NO": "SO012", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Y-Strainer Range 1/2\" to 4\"", "QTY": "42", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "12", "JOB NO": "SO013", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Self Closing Gate Valve Head For Short Sounding Pipe", "QTY": "1", "PROJECT NAME": "Flintstone - Dredging Vessel", "PROJECT LOCATION": "Singapore"}, {"S.NO": "13", "JOB NO": "SO014", "CUSTOMER ID": "C003", "CUSTOMER NAME": "Harris Pye Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Actuated Ball Valve & Manual Ball Valve Range: 3/4\" to 6\"", "QTY": "12", "PROJECT NAME": "", "PROJECT LOCATION": ""}, {"S.NO": "14", "JOB NO": "SO015", "CUSTOMER ID": "C003", "CUSTOMER NAME": "Harris Pye Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "SS Emergency SDV and CS Globe Valve Range 1/2\" to 2\"", "QTY": "18", "PROJECT NAME": "Glas Dowr Topside Conversion Crude Oil - Blue Water Energy", "PROJECT LOCATION": "Kitan Field, Timor Sea, East Timor"}, {"S.NO": "15", "JOB NO": "SO016", "CUSTOMER ID": "C003", "CUSTOMER NAME": "Harris Pye Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Actuated Butterfly Valve Range 2\" to 16\"", "QTY": "47", "PROJECT NAME": "Transocean-Polar Pioneer", "PROJECT LOCATION": "Singapore (Retrofit) / Chukchi Sea, Alaska, USA"}, {"S.NO": "16", "JOB NO": "SO017", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Hose Reel 50m and 80m", "QTY": "2", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "17", "JOB NO": "SO018", "CUSTOMER ID": "C003", "CUSTOMER NAME": "Harris Pye Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Solenoid Valve & Limit Switch Box", "QTY": "16", "PROJECT NAME": "SBM FPSO Project CEDADE", "PROJECT LOCATION": "Offshore Brazil, Santos Basin (SBM FPSO Conversion, Singapore Shipyard)"}, {"S.NO": "18", "JOB NO": "SO019", "CUSTOMER ID": "C017", "CUSTOMER NAME": "Keppel Nantong Shipyard Co., Ltd", "COUNTRY": "China", "PRODUCT": "Yokogawa Coriolis Mass Flow Meter 1\"-6\"", "QTY": "12", "PROJECT NAME": "Hull H384 - Bumiarmada ICE Class Supporting Vessel", "PROJECT LOCATION": "Keppel Nantong Shipyard, Nantong, China"}, {"S.NO": "19", "JOB NO": "SO020", "CUSTOMER ID": "C017", "CUSTOMER NAME": "Keppel Nantong Shipyard Co., Ltd", "COUNTRY": "China", "PRODUCT": "Yokogawa Coriolis Mass Flow Meter 1\"-6\"", "QTY": "12", "PROJECT NAME": "Hull H383 - Bumiarmada ICE Class Supporting Vessel", "PROJECT LOCATION": "Keppel Nantong Shipyard, Nantong, China"}, {"S.NO": "20", "JOB NO": "SO021", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Yokogawa Coriolis Mass Flow Meter 1\"-6\"", "QTY": "11", "PROJECT NAME": "Hull H385 - Bumiarmada ICE Class Supporting Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "21", "JOB NO": "SO022", "CUSTOMER ID": "C003", "CUSTOMER NAME": "Harris Pye Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Manual Ball, Globe and Safety Valve Range 3/4\" to 2\"", "QTY": "36", "PROJECT NAME": "Blue Water Energy - Glas Dowr Topside Conversion Crude Oil", "PROJECT LOCATION": "Kitan Field, Timor Sea, East Timor"}, {"S.NO": "22", "JOB NO": "SO024", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Y-Strainer", "QTY": "", "PROJECT NAME": "H381 Pipe Laying Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "23", "JOB NO": "SO025", "CUSTOMER ID": "C003", "CUSTOMER NAME": "Harris Pye Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Emergency SDV and Gate Valve Range 1/2\" to 2\"", "QTY": "8", "PROJECT NAME": "Blue Water Energy - Glas Dowr Topside Conversion Crude Oil", "PROJECT LOCATION": "Kitan Field, Timor Sea, East Timor"}, {"S.NO": "24", "JOB NO": "SO027", "CUSTOMER ID": "C003", "CUSTOMER NAME": "Harris Pye Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Emergency SDV and Gate Valve Range 2\"", "QTY": "1", "PROJECT NAME": "Blue Water Energy - Glas Dowr Topside Conversion Crude Oil", "PROJECT LOCATION": "Kitan Field, Timor Sea, East Timor"}, {"S.NO": "25", "JOB NO": "SO028", "CUSTOMER ID": "C017", "CUSTOMER NAME": "Keppel Nantong Shipyard Co., Ltd", "COUNTRY": "China", "PRODUCT": "Yokogawa Coriolis Mass Flow Meter 1\"-6\"", "QTY": "2", "PROJECT NAME": "Hull H383 - Bumiarmada ICE Class Supporting Vessel", "PROJECT LOCATION": "Keppel Nantong Shipyard, Nantong, China"}, {"S.NO": "26", "JOB NO": "SO029", "CUSTOMER ID": "C017", "CUSTOMER NAME": "Keppel Nantong Shipyard Co., Ltd", "COUNTRY": "China", "PRODUCT": "Yokogawa Coriolis Mass Flow Meter 1\"-6\"", "QTY": "2", "PROJECT NAME": "Hull H384 - Bumiarmada ICE Class Supporting Vessel", "PROJECT LOCATION": "Keppel Nantong Shipyard, Nantong, China"}, {"S.NO": "27", "JOB NO": "SO030", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Yokogawa Coriolis Mass Flow Meter 1\"-6\"", "QTY": "2", "PROJECT NAME": "Hull H385 - Bumiarmada ICE Class Supporting Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "28", "JOB NO": "SO031", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "2\" SDNR with ABS Inspection done by AGS", "QTY": "1", "PROJECT NAME": "Hull H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "29", "JOB NO": "SO034", "CUSTOMER ID": "C003", "CUSTOMER NAME": "Harris Pye Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "2\" Lift Check Valve", "QTY": "1", "PROJECT NAME": "Glas Dowr Topside Conversion Crude Oil - Blue Water Energy", "PROJECT LOCATION": "Kitan Field, Timor Sea, East Timor"}, {"S.NO": "30", "JOB NO": "SO035", "CUSTOMER ID": "C003", "CUSTOMER NAME": "Harris Pye Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "1/2\" and 1/2\" Manual Ball Valve", "QTY": "4", "PROJECT NAME": "Glas Dowr Topside Conversion Crude Oil - Blue Water Energy", "PROJECT LOCATION": "Kitan Field, Timor Sea, East Timor"}, {"S.NO": "31", "JOB NO": "SO036", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "2\" and 3\" SDNR with ABS Inspection done by AGS", "QTY": "4", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "32", "JOB NO": "SO038", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Ball Valve", "QTY": "4", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "33", "JOB NO": "SO039", "CUSTOMER ID": "C003", "CUSTOMER NAME": "Harris Pye Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "2\" Ball Valve Flange End", "QTY": "1", "PROJECT NAME": "Glas Dowr Topside Conversion Crude Oil - Blue Water Energy", "PROJECT LOCATION": "Kitan Field, Timor Sea, East Timor"}, {"S.NO": "34", "JOB NO": "SO15003", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Fire Safe Butterfly Valve 100mm", "QTY": "2", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "35", "JOB NO": "SO15004", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Quick Closing Valve", "QTY": "1", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "36", "JOB NO": "SO15006", "CUSTOMER ID": "C023", "CUSTOMER NAME": "PT Dwisatu Mustika Bumi", "COUNTRY": "Indonesia", "PRODUCT": "Hydraulic Power Unit With Zone 1 Specification for 16\" #600 API 6DSS Ball Valve at 30m Water Depth", "QTY": "1 set", "PROJECT NAME": "75,000 cbm Diesel Storage Terminal & Fixed Mooring Dolphin System at Indonesia", "PROJECT LOCATION": "Indonesia"}, {"S.NO": "37", "JOB NO": "SO15012", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "JIS Valves", "QTY": "48", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "38", "JOB NO": "SO15013", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Magnetic Float Type Level Gauge (1.5m) with ABS Type Approval", "QTY": "3", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "39", "JOB NO": "S015024", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Magnetic Float Type Level Gauge (1.65m) with ABS Type Approval", "QTY": "1", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "40", "JOB NO": "S015025", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Magnetic Float Type Level Gauge (1m to 2m) with ABS Type Approval", "QTY": "3", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "41", "JOB NO": "SO15027", "CUSTOMER ID": "C037", "CUSTOMER NAME": "Goltens Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Complete SS Slim Type Check Valve 600mm", "QTY": "2", "PROJECT NAME": "Total-KAOMBO Project", "PROJECT LOCATION": "Block 32, Offshore Luanda, Angola"}, {"S.NO": "42", "JOB NO": "SO16002", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Magnetic Float Type Flowmeter (1100m) with ABS Type Approval", "QTY": "3", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "43", "JOB NO": "SO16004", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "JIS Ball Valve Bronze Body SS Trim", "QTY": "4", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "44", "JOB NO": "SO16005", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Basket Strainer CI Body SS Trim Size 100mm-200mm (Shorter Delivery)", "QTY": "3", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "45", "JOB NO": "SO16007", "CUSTOMER ID": "C037", "CUSTOMER NAME": "Goltens Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "BV Marine Inspection for Slim Type Check Valve DN600 Size Complete SS316", "QTY": "1", "PROJECT NAME": "Total-KAOMBO Project", "PROJECT LOCATION": "Block 32, Offshore Luanda, Angola"}, {"S.NO": "46", "JOB NO": "SO16010", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Complete SS316 Ball Valve 6\" PN16", "QTY": "2", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "47", "JOB NO": "SO16011", "CUSTOMER ID": "C041", "CUSTOMER NAME": "CSI Oil & Gas Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Omal 1/2\" Ball Valve with SR Actuator with ExiA SOV and Limit Switch (Complete ATEX Certified)", "QTY": "1", "PROJECT NAME": "Libra FPSO", "PROJECT LOCATION": "Santos Basin, Offshore Brazil"}, {"S.NO": "48", "JOB NO": "SO16013", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "JIS Standard Check Valve and Self Closing Valve Supplied From Ex-Stock", "QTY": "Each 1pc", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "49", "JOB NO": "SO16014", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Hydraulic Quick Closing Valve Material Bronze and Cast Steel Size: 25-125mm c/w RMRS Certificate", "QTY": "55pc valve + 41pc", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "50", "JOB NO": "SO16015", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "JIS Ball Valve and Globe Valve modified and fitted with Quick Coupling, Supplied from Ex-Stock", "QTY": "each 1", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "51", "JOB NO": "SO16016", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "High Pressure Ball Valve DN80 PN100 A105 Body SS316 Trim", "QTY": "12", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "52", "JOB NO": "SO16017", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Cast Iron 50mm SDNR Valve Supplied From Stock", "QTY": "2", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "53", "JOB NO": "SO16018", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Mini Ball Valve SS316 Supplied from Stock", "QTY": "2", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "54", "JOB NO": "SO16019", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "YPC Brand SOV and Swing Type Check Valve Supplied from Stock", "QTY": "2", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "55", "JOB NO": "SO16021", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Differential Pressure Transmitter Range 0-10 Bar and 0-6 Bar Shorter Delivery (1 week)", "QTY": "34", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "56", "JOB NO": "SO16022", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Fire Safe Hose Globe Valve 65mm, Replaced Coupling with Flange and SDNR JIS 10k Supplied from Ex-Stock with 3rd Party ABS Inspection", "QTY": "4", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "57", "JOB NO": "SO16023", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "High Pressure Ball Valve DN20 420bar Supplied from Stock", "QTY": "12", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "58", "JOB NO": "SO16024", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "SS316 3/4\" Ball Valve Flanged Modified to Fit Quick Coupling", "QTY": "2", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "59", "JOB NO": "SO16025", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Union Bonnet SDNR Valve 1\" 16K", "QTY": "1", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "60", "JOB NO": "SO16027", "CUSTOMER ID": "C076", "CUSTOMER NAME": "Chiyoda Singapore Pte. Ltd", "COUNTRY": "Singapore", "PRODUCT": "Aluminium Bronze Ball Valve 1\" Supplied from Stock", "QTY": "1", "PROJECT NAME": "Stolhaven Phase 2D", "PROJECT LOCATION": "Risavika, Stavanger, Norway"}, {"S.NO": "61", "JOB NO": "SO16028", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Portable Ultrasonic Flow Meter Shorter Delivery from Korea", "QTY": "1", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "62", "JOB NO": "SO16029", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "90 Deg Bevel Gear Box Supplied From Stock", "QTY": "6", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "63", "JOB NO": "SO16031", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Buoys for Buoyancy of 11 Kg and 18mm PP Rope Supplied from Stock", "QTY": "1", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "64", "JOB NO": "SO16032", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Cast Iron 80mm Foot Valve Supplied from Stock", "QTY": "4", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "65", "JOB NO": "SO16033", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Danfoss Temperature Transmitter Supplied from Stock", "QTY": "3", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "66", "JOB NO": "SO16037", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "High Pressure Washing Machine Supplied from Stock", "QTY": "1", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "67", "JOB NO": "SO16038", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Cast Iron 80mm Foot Valve Supplied from Korea Stock", "QTY": "1", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "68", "JOB NO": "SO16039", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Fire Safe Hose Globe Valve 50mm, Replaced Coupling with Flange and 65mm Globe Valve With Storz Coupling", "QTY": "each 2", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "69", "JOB NO": "SO16040", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Manual JIS Valve Size 15mm to 300mm c/w RMRS Certificate", "QTY": "561", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "70", "JOB NO": "SO16041", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "PD Flowmeter 100m 6~180 m3/h c/w Flow Indicator Shorter Delivery (1 week)", "QTY": "each 2", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "71", "JOB NO": "SO16042", "CUSTOMER ID": "C044", "CUSTOMER NAME": "PT. Dumas Energy", "COUNTRY": "Indonesia", "PRODUCT": "Ball Valve 1\" ~8\" with 150# and 300# Rating", "QTY": "149", "PROJECT NAME": "PT Persuahaan Gas Negara (Persero) Tbk Natural Gas Distribution Line", "PROJECT LOCATION": "Indonesia (Natural Gas Distribution Pipeline)"}, {"S.NO": "72", "JOB NO": "SO16043", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "JIS Globe Valve With Fire Safe Certificate", "QTY": "2", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "73", "JOB NO": "SO16044", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Hydraulic Ball Valve (6000 and 3000PSI) Supplied from Stock", "QTY": "8", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "74", "JOB NO": "SO16046", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Flow Indicator for PD Flowmeter", "QTY": "1", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "75", "JOB NO": "SO16047", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Bull Head and Male Connector Immediate Delivery from Stock", "QTY": "18", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "76", "JOB NO": "SO16048", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "64pc Temperature Transmitter (-30 to 45 Deg) c/w RMRS Certificate; 76pc Pressure Transmitter (-1 to 45 Bar) RMRS Inspection; 64pc Pressure Switch (0-16 Bar) c/w RMRS Certificate", "QTY": "204", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "77", "JOB NO": "SO16049", "CUSTOMER ID": "C075", "CUSTOMER NAME": "P3 Project Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "1\" CF8M Velan Ball Valve Supplied from Stock", "QTY": "4", "PROJECT NAME": "MSD Project", "PROJECT LOCATION": "Singapore"}, {"S.NO": "78", "JOB NO": "SO16050", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Singapore", "PRODUCT": "12\" & 18\" JIS Standard Cast Steel Butterfly Valve with 3rd Party ABS Inspection Supplied from Stock", "QTY": "3", "PROJECT NAME": "Vessel Markabi Guide", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "79", "JOB NO": "SO16051", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Singapore", "PRODUCT": "12\" JIS Standard Cast Steel Butterfly Valve with 3rd Party ABS Inspection Supplied from Stock", "QTY": "1", "PROJECT NAME": "Vessel Markabi Guide", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "80", "JOB NO": "SO16052", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Bilge Level Switch c/w RMRS Certificate", "QTY": "96", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "81", "JOB NO": "SO16053", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "4\" JIS Std Cast Iron Butterfly Valve and Sounding Gate Valve", "QTY": "Each 1pc", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "82", "JOB NO": "SO16054", "CUSTOMER ID": "C041", "CUSTOMER NAME": "CSI Oil & Gas Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Omal 1/2\" Ball Valve with SR Actuator with ExiA SOV and Limit Switch (Complete ATEX Certified)", "QTY": "1", "PROJECT NAME": "Libra FPSO (Spare)", "PROJECT LOCATION": "Santos Basin, Offshore Brazil"}, {"S.NO": "83", "JOB NO": "SO16058", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Pressure Transmitter (0 to 6 Bar) RMRS Inspection at Singapore", "QTY": "2pc", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "84", "JOB NO": "SO16061", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "5\" JIS Standard Cast Iron Butterfly Valve Supplied from Stock", "QTY": "2", "PROJECT NAME": "AL Daayen", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "85", "JOB NO": "SO16063", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "12\" JIS Standard Cast Steel Butterfly Valve Supplied from Stock", "QTY": "2", "PROJECT NAME": "Vessel Markabi Guide", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "86", "JOB NO": "SO16066", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "12\", 8\", 4\", 3\" Cast Iron Gate Valve #125 and 3\", 2\", 1/2\" Bronze Ball Valve 600psi and 1\", 1/2\" Bronze Gate Valve and Check Valve Supplied from Stock", "QTY": "111", "PROJECT NAME": "Rig Mshereib", "PROJECT LOCATION": "Doha, Qatar"}, {"S.NO": "87", "JOB NO": "SO16067", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "2\" Bronze Safety Valve with Calibration Certificate Supplied from Stock", "QTY": "1", "PROJECT NAME": "Vessel Markabi Guide", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "88", "JOB NO": "SO16068", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "5\" #150 SDNR (Modified from Globe) with Local 3rd Party ABS Certificate Supplied from Stock", "QTY": "3", "PROJECT NAME": "Rig Mshereib", "PROJECT LOCATION": "Doha, Qatar"}, {"S.NO": "89", "JOB NO": "SO16069", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "2\" #300 Bronze Check End Connection Modified to SW from NPT Supplied from Stock", "QTY": "2", "PROJECT NAME": "Rig Mshereib", "PROJECT LOCATION": "Doha, Qatar"}, {"S.NO": "90", "JOB NO": "SO16071", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Flow Indicator for PD Flowmeter", "QTY": "1", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "91", "JOB NO": "SO16072", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Flat Type Level Gauge C to C 2530 (2pc), C to C 1840mm (4pc); Tubular Type Level Gauge C to C 40mm (3pc); Dial Type Level Gauge Height 1280mm & 1500mm (each 1pc)", "QTY": "11", "PROJECT NAME": "H395 LNG Fuelled (DF) ASD Harbour Tug", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "92", "JOB NO": "SO16073", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Flat Type Level Gauge C to C 2530 (2pc), C to C 1840mm (4pc); Tubular Type Level Gauge C to C 40mm (3pc); Dial Type Level Gauge Height 1280mm & 1500mm (each 1pc)", "QTY": "11", "PROJECT NAME": "H396 LNG Fuelled (DF) ASD Harbour Tug", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "93", "JOB NO": "SO17005", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "JIS Std Cast Steel Globe Valve 10\" (1pc), 4\" (2pc) Shorter Delivery 1 Week", "QTY": "3", "PROJECT NAME": "Vessel Vishva Bandhan", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "94", "JOB NO": "SO17006", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "JIS Std Cast Steel Globe Valve 10\" (1pc), 4\" (2pc) Shorter Delivery 1 Week", "QTY": "3", "PROJECT NAME": "Vessel Vishva Bandhan", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "95", "JOB NO": "SO17008", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Supply of JIS Manual Valve c/w BV Certificate", "QTY": "85", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "96", "JOB NO": "SO17009", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Supply of JIS Std Manual Butterfly Valve, Check and Globe Valve from Stock", "QTY": "35", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "97", "JOB NO": "SO17010", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Pressure Reducing Valve 125A 10k with Shorter Delivery", "QTY": "2", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "98", "JOB NO": "SO17011", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Supply of Quick Closing Valve 80mm X JIS 10k With Shorter 1 Week Delivery", "QTY": "1", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "99", "JOB NO": "SO17014", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Supply of 125A Angle Globe with 3rd Party ABS Certificate", "QTY": "1", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "100", "JOB NO": "SO17017", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Recalibration of PD Flowmeter within 1 Week Time", "QTY": "2", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "101", "JOB NO": "SO17022", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Replacement for 64pc Pressure Switch (0-16 Bar) c/w RMRS Certificate", "QTY": "64", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "102", "JOB NO": "SO17024", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Supply of Bite Type Ball Valve Supplied from Stock", "QTY": "1", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "103", "JOB NO": "SO17032", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Double Window Sight Glass Supplied From Stock", "QTY": "1", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "104", "JOB NO": "SO17033", "CUSTOMER ID": "C041", "CUSTOMER NAME": "CSI Oil & Gas Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Complete Stainless Steel 316 On-Off Valve with SOV and Limit Switch", "QTY": "1", "PROJECT NAME": "MODEC - Nitrogen Generator Package", "PROJECT LOCATION": "Offshore Brazil"}, {"S.NO": "105", "JOB NO": "SO17034", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Ex-Proof Pressure & Temperature Transmitter Supplied from Stock", "QTY": "4", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "106", "JOB NO": "SO17043", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Bilge Level Switch c/w RMRS Certificate", "QTY": "25", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "107", "JOB NO": "SO17049", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Solenoid Valve with Manual Lever", "QTY": "4", "PROJECT NAME": "Al Mahaar", "PROJECT LOCATION": "Doha, Qatar (Nakilat LNG Fleet)"}, {"S.NO": "108", "JOB NO": "SO17050", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "420Bar Hydraulic Hose with SS316 Coupling", "QTY": "1", "PROJECT NAME": "Al Mahaar", "PROJECT LOCATION": "Doha, Qatar (Nakilat LNG Fleet)"}, {"S.NO": "109", "JOB NO": "SO17053", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Bilge Level Switch c/w RMRS Certificate", "QTY": "5", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "110", "JOB NO": "SO17054", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Pressure Transmitter Sensor Connector", "QTY": "20", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "111", "JOB NO": "SO17055", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "JIS Standard Ball Valve SS316 Material Size 15 & 25mm Butt Weld Supplied from Stock", "QTY": "5", "PROJECT NAME": "H395 LNG Fuelled (DF) ASD Harbour Tug", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "112", "JOB NO": "SO17056", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "JIS Standard Ball Valve SS316 Material Size 15 & 25mm Butt Weld Supplied from Stock", "QTY": "5", "PROJECT NAME": "H396 LNG Fuelled (DF) ASD Harbour Tug", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "113", "JOB NO": "SO17061", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "JIS Ball Valve & Globe Valve Supplied from Stock", "QTY": "12", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "114", "JOB NO": "SO17062", "CUSTOMER ID": "C080", "CUSTOMER NAME": "SOFEC Floating Systems Pte. Ltd.", "COUNTRY": "Singapore", "PRODUCT": "Surge Tank Magnetic Level Gauge & Surge Tank Level Switch with EXd Certification", "QTY": "6", "PROJECT NAME": "Dangote Calm Buoy Project", "PROJECT LOCATION": "Offshore Lagos, Nigeria (Ibeju-Lekki)"}, {"S.NO": "115", "JOB NO": "SO17066", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "RMRS Certified Pressure Transmitter with Hart Communication", "QTY": "24", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "116", "JOB NO": "SO17079", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Thermostat Element for Temperature Control Valve", "QTY": "32", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "117", "JOB NO": "SO17085", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "40K JIS Globe Valve 1/2\" Forged Steel Supplied from Stock", "QTY": "2", "PROJECT NAME": "LNG Raahi", "PROJECT LOCATION": "Doha, Qatar (Nakilat LNG Fleet)"}, {"S.NO": "118", "JOB NO": "SO17086", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "RMRS Certified Pressure Transmitter with Hart Communication", "QTY": "9", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "119", "JOB NO": "SO18002", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "150mm JIS 10K Angle Globe Valve", "QTY": "1", "PROJECT NAME": "H381 Pipe Laying Vessel - Mcdermott Project", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "120", "JOB NO": "SO18005", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "2500# 1/2\" SDNR Valve", "QTY": "7", "PROJECT NAME": "Rasheeda", "PROJECT LOCATION": "Doha, Qatar (Nakilat LNG Fleet)"}, {"S.NO": "121", "JOB NO": "SO18008", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "G3/4\" 3-15 Bar BSPP SS Ball Valve (1pc); G1/2\" 500 Bar BSPP SS Ball Valve (5pcs); JIS Std CI Y Strainer 8\" (1pc); JIS Std SS SDNR Valve 1-1/4\" (1pc); JIS Std Bronze 1\" Ball Valve (1pc); JIS Std SDNR Valve CS 6\" (1pc); JIS Std SDNR Valve Bronze 1-1/4\" (1pc)", "QTY": "11", "PROJECT NAME": "Bu Sidra", "PROJECT LOCATION": "Doha, Qatar (Nakilat LNG Fleet)"}, {"S.NO": "122", "JOB NO": "SO18009", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "JIS Std CI Y-Strainer 8\" (1pc); JIS Std SS SDNR Valve 1-1/4\" (1pc); JIS Std Bronze Ball Valve 1\" (1pc); JIS Std CS SDNR Valve 6\" (1pc); G3/4\" 315 Bar BSPP SS Ball Valve (1pc); G1/2\" 500 Bar BSPP SS Ball Valve (5pcs); G1/4\" 500 Bar BSPP SS Ball Valve (12pcs)", "QTY": "22", "PROJECT NAME": "Umm Laqhab", "PROJECT LOCATION": "Doha, Qatar (Nakilat LNG Fleet)"}, {"S.NO": "123", "JOB NO": "SO18012", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "JIS STD Butterfly Valve CI 200mm (1pc); CS 25mm (1pc)", "QTY": "2", "PROJECT NAME": "Bu Sidra", "PROJECT LOCATION": "Doha, Qatar (Nakilat LNG Fleet)"}, {"S.NO": "124", "JOB NO": "SO18013", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "JIS STD Butterfly Valve CI 200mm (1pc); CS 25mm (1pc)", "QTY": "2", "PROJECT NAME": "Umm Laqhab", "PROJECT LOCATION": "Doha, Qatar (Nakilat LNG Fleet)"}, {"S.NO": "125", "JOB NO": "SO18016", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "32mm JIS 5K Y Strainer", "QTY": "1", "PROJECT NAME": "H396 LNG Fuelled (DF) ASD Harbour Tug", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "126", "JOB NO": "SO18017", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "32mm JIS 5K Y Strainer", "QTY": "1", "PROJECT NAME": "H395 LNG Fuelled (DF) ASD Harbour Tug", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "127", "JOB NO": "SO18020", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "G1/4\" 500 Bar BSPP SS Ball Valve (2pcs); Bronze 32mm Ball Valve (2pcs); Bronze Swing Check Valve (1pc)", "QTY": "5", "PROJECT NAME": "Umm Laqhab", "PROJECT LOCATION": "Doha, Qatar (Nakilat LNG Fleet)"}, {"S.NO": "128", "JOB NO": "SO18021", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "G1/4\" 500 Bar BSPP SS Ball Valve (2pcs); Bronze 32mm Ball Valve (2pcs); Bronze Swing Check Valve (1pc)", "QTY": "5", "PROJECT NAME": "Bu Sidra", "PROJECT LOCATION": "Doha, Qatar (Nakilat LNG Fleet)"}, {"S.NO": "129", "JOB NO": "SO18023", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "G1/4\" 500 Bar BSPP SS Ball Valve (2pcs)", "QTY": "2", "PROJECT NAME": "Umm Laqhab", "PROJECT LOCATION": "Doha, Qatar (Nakilat LNG Fleet)"}, {"S.NO": "130", "JOB NO": "SO18025", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "G1/4\" 500 Bar BSPP SS Ball Valve (12pcs)", "QTY": "12", "PROJECT NAME": "Umm Laqhab", "PROJECT LOCATION": "Doha, Qatar (Nakilat LNG Fleet)"}, {"S.NO": "131", "JOB NO": "SO18026", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "JIS Std 32mm SS Ball Valve", "QTY": "2", "PROJECT NAME": "Bu Sidra", "PROJECT LOCATION": "Doha, Qatar (Nakilat LNG Fleet)"}, {"S.NO": "132", "JOB NO": "SO18030", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "JIS Std SDNR Valve CS 2-1/2\"", "QTY": "2", "PROJECT NAME": "Bu Sidra", "PROJECT LOCATION": "Doha, Qatar (Nakilat LNG Fleet)"}, {"S.NO": "133", "JOB NO": "SO18031", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "1/2\" 1000 PSI Ball Valve", "QTY": "1", "PROJECT NAME": "H395 LNG Fuelled (DF) ASD Harbour Tug", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "134", "JOB NO": "SO18032", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "1/2\" 1000 PSI Ball Valve", "QTY": "1", "PROJECT NAME": "H395 LNG Fuelled (DF) ASD Harbour Tug", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "135", "JOB NO": "SO18035", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "32mm JIS 5K Y Strainer", "QTY": "1", "PROJECT NAME": "H395 LNG Fuelled (DF) ASD Harbour Tug", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "136", "JOB NO": "SO18036", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "32mm JIS 5K Y Strainer", "QTY": "1", "PROJECT NAME": "H396 LNG Fuelled (DF) ASD Harbour Tug", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "137", "JOB NO": "SO18044", "CUSTOMER ID": "C108", "CUSTOMER NAME": "Baku Shipyard LLC", "COUNTRY": "Azerbaijan", "PRODUCT": "DIN Standard CI Air Vent Head 50mm to 250mm", "QTY": "73", "PROJECT NAME": "H108 Car-Railway-Passenger Ferry Vessels", "PROJECT LOCATION": "Caspian Sea, Baku, Azerbaijan (Baku Shipyard)"}, {"S.NO": "138", "JOB NO": "SO18045", "CUSTOMER ID": "C108", "CUSTOMER NAME": "Baku Shipyard LLC", "COUNTRY": "Azerbaijan", "PRODUCT": "DIN Standard CI Air Vent Head 50mm to 250mm", "QTY": "73", "PROJECT NAME": "H109 Car-Railway-Passenger Ferry Vessels", "PROJECT LOCATION": "Caspian Sea, Baku, Azerbaijan (Baku Shipyard)"}, {"S.NO": "139", "JOB NO": "SO18047", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "80mm JIS 10K Ball Valve", "QTY": "3", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "140", "JOB NO": "SO18052", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Safety Valve & Pressure Reducing Valve Pop Test, Calibration & Service", "QTY": "8", "PROJECT NAME": "H395 LNG Fuelled (DF) ASD Harbour Tug", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "141", "JOB NO": "SO18053", "CUSTOMER ID": "C041", "CUSTOMER NAME": "CSI Oil & Gas Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "SS316 3/8\"OD x 50mm Long Standpipe Hose; Working Pressure 250 Bar; Hose Size 5/16\" x 0.5Mtr", "QTY": "4", "PROJECT NAME": "TBA", "PROJECT LOCATION": ""}, {"S.NO": "142", "JOB NO": "SO18054", "CUSTOMER ID": "C003", "CUSTOMER NAME": "Harris Pye Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "CS 1\" 300# Globe Valve", "QTY": "1", "PROJECT NAME": "TBA", "PROJECT LOCATION": ""}, {"S.NO": "143", "JOB NO": "SO18049", "CUSTOMER ID": "C177", "CUSTOMER NAME": "Sembawang Shipyard Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Cover For DN300 JIS 10K Knife Gate Valve", "QTY": "2", "PROJECT NAME": "Spare", "PROJECT LOCATION": ""}, {"S.NO": "144", "JOB NO": "SO18055", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Flat Type Level Gauge", "QTY": "2", "PROJECT NAME": "Flowers Tide", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "145", "JOB NO": "SO18057", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Pressure Transmitter (0...4 bar & -0.5...2 bar)", "QTY": "3", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "146", "JOB NO": "SO18058", "CUSTOMER ID": "C024", "CUSTOMER NAME": "Boustead Controls & Electrics Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "F316 Y-Strainer Threaded 3/4\" & 3/8\"", "QTY": "12", "PROJECT NAME": "NPCC ONGC", "PROJECT LOCATION": "Offshore India / Abu Dhabi, UAE"}, {"S.NO": "147", "JOB NO": "SO18059", "CUSTOMER ID": "C024", "CUSTOMER NAME": "Boustead Controls & Electrics Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "F316L Y-Strainer Threaded 3/8\"", "QTY": "5", "PROJECT NAME": "NPCC ONGC", "PROJECT LOCATION": "Offshore India / Abu Dhabi, UAE"}, {"S.NO": "148", "JOB NO": "SO18060", "CUSTOMER ID": "C024", "CUSTOMER NAME": "Boustead Controls & Electrics Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "F316L Y-Strainer Threaded 3/8\"", "QTY": "1", "PROJECT NAME": "NPCC ONGC", "PROJECT LOCATION": "Offshore India / Abu Dhabi, UAE"}, {"S.NO": "149", "JOB NO": "SO18061", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Safety Valve & Pressure Reducing Valve Pop Test, Calibration & Service", "QTY": "8", "PROJECT NAME": "H396 LNG Fuelled (DF) ASD Harbour Tug", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "150", "JOB NO": "SO18062", "CUSTOMER ID": "C017", "CUSTOMER NAME": "Keppel Nantong Shipyard Co., Ltd", "COUNTRY": "China", "PRODUCT": "DIN Standard CI Air Vent Head 65mm to 150mm", "QTY": "66", "PROJECT NAME": "7,500m³ Semi-Pressured LNG Carrier (H400)", "PROJECT LOCATION": "Keppel Nantong Shipyard, Nantong, China"}, {"S.NO": "151", "JOB NO": "SO18063", "CUSTOMER ID": "C017", "CUSTOMER NAME": "Keppel Nantong Shipyard Co., Ltd", "COUNTRY": "China", "PRODUCT": "DIN Standard CI Air Vent Head 65mm to 150mm", "QTY": "66", "PROJECT NAME": "7,500m³ Semi-Pressured LNG Carrier (H401)", "PROJECT LOCATION": "Keppel Nantong Shipyard, Nantong, China"}, {"S.NO": "152", "JOB NO": "SO18064", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Pressure Transmitter (0...13 bar); Pressure Switch (0.5-8 BAR 18D Series, Set Point: 2 Bar)", "QTY": "2", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "153", "JOB NO": "SO18065", "CUSTOMER ID": "C083", "CUSTOMER NAME": "Wasco Engineering Services Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Ball Valve A105, F51, F316, CF8M, LF2, LCC, A995 GR 6A & A479 UNS S31803 Material 150#, 300#, 900# Size 3/4\" to 8\"", "QTY": "125", "PROJECT NAME": "SDVN Gas Lift Compressor", "PROJECT LOCATION": "Offshore Malaysia / Southeast Asia"}, {"S.NO": "154", "JOB NO": "SO18066", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Check Valve Cast Iron 4\" 150# Flanged End; Wafer Type Swing Check Valve CF8M 150# 6\" & 10\"", "QTY": "3", "PROJECT NAME": "Flowers Tide", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "155", "JOB NO": "SO18067", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Pressure Transmitter (0...16 bar)", "QTY": "1", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "156", "JOB NO": "SO18070", "CUSTOMER ID": "C002", "CUSTOMER NAME": "Keppel Singmarine Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Pressure Transmitter, Temperature Transmitter", "QTY": "2", "PROJECT NAME": "H389 ICE Class Multipurpose Vessel", "PROJECT LOCATION": "Singapore (Keppel Singmarine Shipyard)"}, {"S.NO": "157", "JOB NO": "SO18082", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Globe Valve & Butterfly Valve 2\", 5\", 4\"", "QTY": "4", "PROJECT NAME": "SCI Chennai - Drydocking & Repairs", "PROJECT LOCATION": "Chennai, India (Shipping Corporation of India)"}, {"S.NO": "158", "JOB NO": "SO18085", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Sounding Cap 2\"", "QTY": "15", "PROJECT NAME": "SCI Chennai - Drydocking & Repairs", "PROJECT LOCATION": "Chennai, India (Shipping Corporation of India)"}, {"S.NO": "159", "JOB NO": "SO18086", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Sounding Cap 1-1/2\"", "QTY": "15", "PROJECT NAME": "SCI Chennai - Drydocking & Repairs", "PROJECT LOCATION": "Chennai, India (Shipping Corporation of India)"}, {"S.NO": "160", "JOB NO": "SO18087", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Ball Valve 1\", 3/4\", 3 Way Ball Valve 1/2\"", "QTY": "12", "PROJECT NAME": "SCI Chennai - Drydocking & Repairs", "PROJECT LOCATION": "Chennai, India (Shipping Corporation of India)"}, {"S.NO": "161", "JOB NO": "SO18089", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Globe Valve 2\", 2-1/2\" CS Body", "QTY": "8", "PROJECT NAME": "Mekaines - Drydocking & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "162", "JOB NO": "SO18091", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Globe Valve 40mm Bronze Body", "QTY": "1", "PROJECT NAME": "Mekaines - Drydocking & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "163", "JOB NO": "SO18101", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Gate Valve WCB 2-1/2\" 150#", "QTY": "1", "PROJECT NAME": "Mekaines - Drydocking & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "164", "JOB NO": "SO18103", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Gate Valve CI 6\" JIS 5K", "QTY": "1", "PROJECT NAME": "Maran Capricorn (DD, SOx Scrubber & BWTS)", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "165", "JOB NO": "SO18106", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Seal Kit For Model 14 Actuator", "QTY": "2", "PROJECT NAME": "Rumailah - Major Repair Works", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "166", "JOB NO": "SO18109", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Butterfly Valve CS 5\"", "QTY": "2", "PROJECT NAME": "Umm Slal", "PROJECT LOCATION": "Doha, Qatar (Nakilat LNG Fleet)"}, {"S.NO": "167", "JOB NO": "SO18110", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Seal Kit For Model 14 Actuator", "QTY": "2", "PROJECT NAME": "Rumailah - Major Repair Works", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "168", "JOB NO": "SO18114", "CUSTOMER ID": "C110", "CUSTOMER NAME": "Hertel Singapore Pte Ltd.", "COUNTRY": "Singapore", "PRODUCT": "Ball Valve 6\", 8\" 150#", "QTY": "2", "PROJECT NAME": "Vopak Banyan", "PROJECT LOCATION": "Jurong Island, Singapore"}, {"S.NO": "169", "JOB NO": "SO18115", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Ball Valve 2\" 300#; Inverted Check Valve 2\" 150#", "QTY": "5", "PROJECT NAME": "SPM Buoy - Drydocking & Overhauling", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "170", "JOB NO": "SO18116", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Globe CS 65mm; Ball Valve Bronze 32mm; Check Valve 32mm; Y Strainer 8\"", "QTY": "9", "PROJECT NAME": "Al Wukir - Drydocking & BWMS Installation", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "171", "JOB NO": "SO18118", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Ball Valve SS316 1/4\", 3/4\", 1/2\"", "QTY": "34", "PROJECT NAME": "Al Wukir - Drydocking & BWMS Installation", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "172", "JOB NO": "SO18120", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Globe Valve CS 65mm", "QTY": "4", "PROJECT NAME": "Al Wukir - Drydocking & BWMS Installation", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "173", "JOB NO": "SO18121", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Ball Valve SS316 1/4\", 3/4\", 1/2\"", "QTY": "19", "PROJECT NAME": "Lubara - BWMS Installation & Drydocking", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "174", "JOB NO": "SO18123", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Butterfly Valve Lug Type 350mm", "QTY": "8", "PROJECT NAME": "Disha - Drydock & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "175", "JOB NO": "SO18125", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Globe Valve 2\"; Ball Valve 2-1/2\"; Gate Valve 5\"", "QTY": "5", "PROJECT NAME": "FSRU Excelerate - Upgrade Scope", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "176", "JOB NO": "SO18126", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Ball Valve 1\" JIS 10K", "QTY": "2", "PROJECT NAME": "Al Wukir - Drydocking & BWMS Installation / Lubara - BWMS Installation & Dry Docking", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "177", "JOB NO": "SO18127", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Ball Valve 1\" JIS 10K", "QTY": "2", "PROJECT NAME": "Lubara - BWMS Installation & Dry Docking", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "178", "JOB NO": "SO18128", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Ball Valve 3/4\"; Check Valve 2-1/2\"; Pressure Regulator 1/2\"", "QTY": "6", "PROJECT NAME": "FSRU Excelerate - Upgrade Scope", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "179", "JOB NO": "SO18130", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Ball Valve G3/4\" 315 Bar BSPP (3pc); G1\" 315 Bar BSPP (3pc); G1\" 315 Bar BSPP with Male Connector (3pc)", "QTY": "9", "PROJECT NAME": "FSRU Excelerate - Upgrade Scope", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "180", "JOB NO": "SO19002", "CUSTOMER ID": "C009", "CUSTOMER NAME": "JEL Maintenance Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Gate Valve 1/2\" (12pc); 12\" 1500# (2pc); 1/2\" 2500# (3pc); Ball Valve 1/4\" 1000PSI (6pc)", "QTY": "23", "PROJECT NAME": "SLXP - 2 Projects-A0009-17", "PROJECT LOCATION": "Singapore"}, {"S.NO": "181", "JOB NO": "SO19003", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "SDNR Globe Valve 3\" (2pc); Globe Valve 3\" (3pc)", "QTY": "5", "PROJECT NAME": "Al Sadd", "PROJECT LOCATION": "Doha, Qatar (Nakilat LNG Fleet)"}, {"S.NO": "182", "JOB NO": "SO19005", "CUSTOMER ID": "C243", "CUSTOMER NAME": "FOX Offshore Pte. Ltd", "COUNTRY": "Singapore", "PRODUCT": "22.5x3 O-Ring (20pc); 30x3 O-Ring (20pc); Piston (3pc)", "QTY": "43", "PROJECT NAME": "MPV Everest", "PROJECT LOCATION": "Singapore / Southeast Asia"}, {"S.NO": "183", "JOB NO": "SO19006", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Safety Valve with Lever 1-1/4\" (5pc)", "QTY": "5", "PROJECT NAME": "Bul Hanine Redevelopment Project Phase I", "PROJECT LOCATION": "Bul Hanine Oilfield, Offshore Qatar"}, {"S.NO": "184", "JOB NO": "SO19007", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Storm Valve Angle Type & Straight Type 4\" to 6\" (4pc)", "QTY": "4", "PROJECT NAME": "MT Sampurna Swarajya - Drydocking & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "185", "JOB NO": "SO19011", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Globe Valve 1\" (2pc)", "QTY": "2", "PROJECT NAME": "MT Sampurna Swarajya - Drydocking & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "186", "JOB NO": "SO19012", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "High Performance Butterfly Valve 10\" PN16", "QTY": "1", "PROJECT NAME": "Desh Viraat - Drydocking & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "187", "JOB NO": "SO19014", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Seat Ring for Butterfly Valve V11 Size 550mm", "QTY": "1", "PROJECT NAME": "Desh Viraat - Drydocking & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "188", "JOB NO": "SO19015", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Gate Valve 5\" (1pc); Globe Valve 2\" (1pc)", "QTY": "2", "PROJECT NAME": "MT Sampurna Swarajya - Drydocking & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "189", "JOB NO": "SO19017", "CUSTOMER ID": "C243", "CUSTOMER NAME": "FOX Offshore Pte. Ltd", "COUNTRY": "Singapore", "PRODUCT": "Weir Type Diaphragm Valve 1/2\" (2pc)", "QTY": "2", "PROJECT NAME": "MPV Everest", "PROJECT LOCATION": "Singapore / Southeast Asia"}, {"S.NO": "190", "JOB NO": "SO19026", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Globe Valve 2\" (2pcs); Globe Valve 2.5\" (2pcs)", "QTY": "4", "PROJECT NAME": "Al Mafyar - Drydocking & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "191", "JOB NO": "SO19027", "CUSTOMER ID": "C243", "CUSTOMER NAME": "FOX Offshore Pte. Ltd", "COUNTRY": "Singapore", "PRODUCT": "Hydraulic Impulse Unit (5pc)", "QTY": "5", "PROJECT NAME": "MPV Everest", "PROJECT LOCATION": "Singapore / Southeast Asia"}, {"S.NO": "192", "JOB NO": "SO19030", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Butterfly Valve 2\" 5K Lug (4pc)", "QTY": "4", "PROJECT NAME": "Al Mafyar - Drydocking & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "193", "JOB NO": "SO19031", "CUSTOMER ID": "C278", "CUSTOMER NAME": "Saifee Ship Spare Parts & Ship Chandlers LLC", "COUNTRY": "Dubai", "PRODUCT": "Check Valve 2\" (8pc)", "QTY": "8", "PROJECT NAME": "LNG Portovyy", "PROJECT LOCATION": "Portovaya Bay, Vyborg, Russia (Baltic Sea)"}, {"S.NO": "194", "JOB NO": "SO19033", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Globe Valve 3\" 5K (4pc)", "QTY": "4", "PROJECT NAME": "Al Mafyar - Drydocking & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "195", "JOB NO": "SO19034", "CUSTOMER ID": "C243", "CUSTOMER NAME": "FOX Offshore Pte. Ltd", "COUNTRY": "Singapore", "PRODUCT": "Weir Type Diaphragm Valve 1/2\" (3pc)", "QTY": "3", "PROJECT NAME": "MPV Everest", "PROJECT LOCATION": "Singapore / Southeast Asia"}, {"S.NO": "196", "JOB NO": "SO19036", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Butterfly Valve 16\" 10K (2pc)", "QTY": "2", "PROJECT NAME": "Onaiza - Drydocking & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "197", "JOB NO": "SO19039", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Globe Valve 2.5\" 20K (4pc)", "QTY": "4", "PROJECT NAME": "Al Kharaitiyat", "PROJECT LOCATION": "Doha, Qatar (Nakilat LNG Fleet)"}, {"S.NO": "198", "JOB NO": "SO19041", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Globe Valve 4\" 10K (1pc); Steam Trap 1/2\" (3pc); Pressure Reducing Valve 2\" 10K (1pc)", "QTY": "5", "PROJECT NAME": "Milaha Ras Laffan", "PROJECT LOCATION": "Ras Laffan, Qatar (Milaha Shipping)"}, {"S.NO": "199", "JOB NO": "SO19042", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "SDNR Valve DN40 PN16 (5pcs); Mud Box DN40 PN10 (5pcs); Ball Check Valve DN125 (1pc)", "QTY": "11", "PROJECT NAME": "Bonny River", "PROJECT LOCATION": "Bonny River, Nigeria"}, {"S.NO": "200", "JOB NO": "SO19043", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Butterfly Valve 4\" 10K (4pc); Butterfly Valve 1-1/2\" (4pc)", "QTY": "8", "PROJECT NAME": "Incat Jaguar - Docking & Repairs", "PROJECT LOCATION": "Tasmania, Australia (Incat Shipyard)"}, {"S.NO": "201", "JOB NO": "SO19044", "CUSTOMER ID": "C144", "CUSTOMER NAME": "Keppel Fels", "COUNTRY": "Singapore", "PRODUCT": "Bunker Sampling Flange 4\" (4pc)", "QTY": "4", "PROJECT NAME": "FS01C/0010 Project H402 Dredger", "PROJECT LOCATION": "Singapore (Keppel Fels Shipyard)"}, {"S.NO": "202", "JOB NO": "SO19045", "CUSTOMER ID": "C144", "CUSTOMER NAME": "Keppel Fels", "COUNTRY": "Singapore", "PRODUCT": "Bunker Sampling Flange 4\" (4pc)", "QTY": "4", "PROJECT NAME": "FS01C/0011 Project H403 Dredger", "PROJECT LOCATION": "Singapore (Keppel Fels Shipyard)"}, {"S.NO": "203", "JOB NO": "SO19046", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Y-Strainer 2\" 10K (1pc)", "QTY": "1", "PROJECT NAME": "Maran Antares - SOx/Drydocking/BWMS", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "204", "JOB NO": "SO19050", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Pressure Relief Valve 1-1/2\" (1no)", "QTY": "1", "PROJECT NAME": "Cap Martin - C154A190017 ER_FULFLO Regulator Valve/ADE", "PROJECT LOCATION": "Belgium / Netherlands (Dredging International TSHD)"}, {"S.NO": "205", "JOB NO": "SO19053", "CUSTOMER ID": "C003", "CUSTOMER NAME": "Harris Pye Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "SDNR Valve 3\" 1500# (3nos); SDNR Valve 1500# (1no)", "QTY": "7", "PROJECT NAME": "HPS-6626 Min Lu - SDNR Valve", "PROJECT LOCATION": "Singapore"}, {"S.NO": "206", "JOB NO": "SO19054", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Pressure Relief Valve Inlet 2\" JIS 10K RF x Outlet 3\" JIS 10K FF (1pc)", "QTY": "1", "PROJECT NAME": "Milaha Ras Laffan", "PROJECT LOCATION": "Ras Laffan, Qatar (Milaha Shipping)"}, {"S.NO": "207", "JOB NO": "SO19059", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Inverted Vent Check Valve", "QTY": "3", "PROJECT NAME": "SPM Buoy - Drydocking & Overhauling", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "208", "JOB NO": "SO19074", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Y Strainer 2\" 10K (1pc)", "QTY": "1", "PROJECT NAME": "Maran Canopus - SOx Scrubber", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "209", "JOB NO": "SO19082", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Multiple JIS Valves including Butterfly, Check, Diaphragm, Globe, SDNR, Ball Valves (various sizes)", "QTY": "55", "PROJECT NAME": "Al Karaana - BWTS Retrofit Scope", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "210", "JOB NO": "SO19083", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Multiple JIS Valves including Butterfly, Check, Diaphragm, Globe, SDNR, Ball Valves (various sizes)", "QTY": "55", "PROJECT NAME": "Al Khattiya - BWTS Retrofit Scope", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "211", "JOB NO": "SO19084", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Multiple JIS Valves including Butterfly, Check, Diaphragm, Globe, SDNR, Ball Valves (various sizes)", "QTY": "55", "PROJECT NAME": "Al Nuaman - BWTS Retrofit Scope", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "212", "JOB NO": "SO19085", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Multiple JIS Valves including Butterfly, Check, Diaphragm, Globe, SDNR, Ball Valves (various sizes)", "QTY": "55", "PROJECT NAME": "Al Bahiya - BWTS Retrofit Scope", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "213", "JOB NO": "SO19086", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Gate Valve 8\" (1pc)", "QTY": "1", "PROJECT NAME": "Al Mahaar - Dry Docking", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "214", "JOB NO": "SO19087", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Multiple JIS Valves including Butterfly, Gate, Needle, Globe, SDNR, Ball Valves (various sizes)", "QTY": "90", "PROJECT NAME": "Shagra - BWTS Retrofit Scope", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "215", "JOB NO": "SO19088", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Multiple JIS Valves including Butterfly, Gate, Needle, Globe, SDNR, Ball Valves (various sizes)", "QTY": "90", "PROJECT NAME": "Al Dafna - BWTS Retrofit Scope", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "216", "JOB NO": "SO19089", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Multiple JIS Valves including Butterfly, Gate, Needle, Globe, SDNR, Ball Valves (various sizes)", "QTY": "90", "PROJECT NAME": "Zarga - BWTS Retrofit Scope", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "217", "JOB NO": "SO19090", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Multiple JIS Valves including Butterfly, Gate, Needle, Globe, SDNR, Ball Valves (various sizes)", "QTY": "90", "PROJECT NAME": "Rasheeda - BWTS Retrofit Scope", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "218", "JOB NO": "SO19091", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Gate Valve 4\" (6pc); Globe Valve 2-1/2\" (6pc); Globe Valve 2\" (6pc); Storm Valve 6\" (1pc)", "QTY": "21", "PROJECT NAME": "Desh Shanthi - Drydocking & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "219", "JOB NO": "SO19095", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Valve Seat Ring for Ball Valve 16\" 5K (2nos); 5\" 5K (2nos); Cargo Valve 22\" 16K (2nos)", "QTY": "6", "PROJECT NAME": "Desh Shanthi - Drydocking & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "220", "JOB NO": "SO19099", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Y Strainer 2\" 10K (1pc)", "QTY": "1", "PROJECT NAME": "Maran Antares - SOx/Drydocking/BWMS", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "221", "JOB NO": "SO19102", "CUSTOMER ID": "C304", "CUSTOMER NAME": "Keppel Shipyard Limited", "COUNTRY": "Singapore", "PRODUCT": "Air Release Valve 3\" (3pc)", "QTY": "3", "PROJECT NAME": "P B Ingenium (San Jacinto)", "PROJECT LOCATION": "Offshore Colombia, Caribbean Sea"}, {"S.NO": "222", "JOB NO": "SO19106", "CUSTOMER ID": "C304", "CUSTOMER NAME": "Keppel Shipyard Limited", "COUNTRY": "Singapore", "PRODUCT": "Turbine Flow Meter 3\" to 6\" (3pc)", "QTY": "3", "PROJECT NAME": "PB Ingenium II", "PROJECT LOCATION": "Offshore Colombia, Caribbean Sea"}, {"S.NO": "223", "JOB NO": "SO19108", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Globe Valve 1\" to 5\" (16pc)", "QTY": "16", "PROJECT NAME": "Desh Vishal - Dry Docking & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "224", "JOB NO": "SO19111", "CUSTOMER ID": "C304", "CUSTOMER NAME": "Keppel Shipyard Limited", "COUNTRY": "Singapore", "PRODUCT": "Pressure Regulating Valve 3/4\" to 1\"", "QTY": "14", "PROJECT NAME": "Vessel: PB Ingenium II", "PROJECT LOCATION": "Offshore Colombia, Caribbean Sea"}, {"S.NO": "225", "JOB NO": "SO19112", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Globe Valve 1-1/2\" (1pc); 5\" (2pc); Butterfly Valve 6\" to 12\" (38pc)", "QTY": "41", "PROJECT NAME": "Desh Vishal - Dry Docking & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "226", "JOB NO": "SO19113", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Gate Valve 2\" (1pc)", "QTY": "1", "PROJECT NAME": "Desh Vishal - Dry Docking & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "227", "JOB NO": "SO19114", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Butterfly Valve 3\" (8pc)", "QTY": "8", "PROJECT NAME": "Desh Vishal - Dry Docking & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "228", "JOB NO": "SO19115", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Seat Ring for Butterfly Valve NBR Size 750mm (1no)", "QTY": "1", "PROJECT NAME": "Desh Vishal - Drydocking & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "229", "JOB NO": "SO19116", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Seat Ring for Butterfly Valve NBR Size 750mm (3nos)", "QTY": "3", "PROJECT NAME": "Desh Vishal - Drydocking & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "230", "JOB NO": "SO19117", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Flat Type Level Gauge 1/2\" (2pc)", "QTY": "2", "PROJECT NAME": "Paterson Tide", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "231", "JOB NO": "SO19118", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "SDNR Globe Valve 3\" 5K (2nos); Ball Valve 2\" 800# (2nos)", "QTY": "4", "PROJECT NAME": "Al Karaana - BWTS Retrofit Scope", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "232", "JOB NO": "SO19121", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Butterfly Valve 5\" 150# (1no)", "QTY": "1", "PROJECT NAME": "Paterson Tide - Alongside Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "233", "JOB NO": "SO19124", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Ball Valve 2\" 800# (2nos)", "QTY": "2", "PROJECT NAME": "Shagra - BWTS Retrofit Scope", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "234", "JOB NO": "SO19128", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Butterfly Valve 12\" 5K (1no)", "QTY": "1", "PROJECT NAME": "Al Khattiya - BWTS Retrofit Scope", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "235", "JOB NO": "SO19138", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Check Valve 12mm OD (12pc)", "QTY": "12", "PROJECT NAME": "Al Khattiya - BWTS Retrofit Scope", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "236", "JOB NO": "SO19142", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Butterfly Valve 2-1/2\" (2pc)", "QTY": "2", "PROJECT NAME": "Al Bahiya - BWTS Retrofit Scope", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "237", "JOB NO": "SO19143", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Butterfly Valve 2-1/2\" (2pc)", "QTY": "2", "PROJECT NAME": "Al Nuaman - BWTS Retrofit Scope", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "238", "JOB NO": "SO19144", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Check Valve 12mm OD (4pc)", "QTY": "4", "PROJECT NAME": "Al Nuaman - BWTS Retrofit Scope", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "239", "JOB NO": "SO19148", "CUSTOMER ID": "C243", "CUSTOMER NAME": "FOX Offshore Pte. Ltd", "COUNTRY": "Singapore", "PRODUCT": "O-Ring 30X3mm (50pc); Hydraulic Cylinder 1-1/4\" (3pc)", "QTY": "53", "PROJECT NAME": "MPV Everest", "PROJECT LOCATION": "Singapore / Southeast Asia"}, {"S.NO": "240", "JOB NO": "SO19149", "CUSTOMER ID": "C304", "CUSTOMER NAME": "Keppel Shipyard Limited", "COUNTRY": "Singapore", "PRODUCT": "Strainer 12\" (1pc)", "QTY": "1", "PROJECT NAME": "SS01R/00791 Amelia", "PROJECT LOCATION": "Singapore (Keppel Shipyard)"}, {"S.NO": "241", "JOB NO": "SO19150", "CUSTOMER ID": "C348", "CUSTOMER NAME": "McDermott International Management, S. de RL", "COUNTRY": "India", "PRODUCT": "Ball Valve 1/2\" (5pc); Diffuser 1/2\" (5pc); Swagelok Hex Nipple 1/2\" (5pc)", "QTY": "5", "PROJECT NAME": "ONGC SURF+SPS KG DWN 98/2 Project", "PROJECT LOCATION": "Krishna-Godavari Basin, Bay of Bengal, India"}, {"S.NO": "242", "JOB NO": "SO19154", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Solenoid Valve 0-150 PSI 1/2\" (1no)", "QTY": "1", "PROJECT NAME": "Al Khor - PTank Conversion", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "243", "JOB NO": "SO19156", "CUSTOMER ID": "C003", "CUSTOMER NAME": "Harris Pye Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Globe Valve 2\" 5K (4nos); SDNR Valve 2\" 10K (4nos); 3\" 10K (2nos); 5\" 10K (2nos); 6\" 10K (2nos); Butterfly Valve 2\" 5K (13nos); 6\" 5K (2nos); Ball Valve 2\" 10K (2nos); 1\" 16K (1no); Diaphragm Valve 2\" 5K (1no)", "QTY": "33", "PROJECT NAME": "LNG Akwa Ibom", "PROJECT LOCATION": "Akwa Ibom State, Offshore Nigeria"}, {"S.NO": "244", "JOB NO": "SO19159", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Butterfly Valve 4\" PN10 (4nos); 6\" PN10 (4nos); 8\" PN10 (1no)", "QTY": "9", "PROJECT NAME": "Nile River - Leaking Valves", "PROJECT LOCATION": "Belgium / Netherlands (Dredging International TSHD)"}, {"S.NO": "245", "JOB NO": "SO19160", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Rubber Bellow 5\" PN16 (2nos)", "QTY": "2", "PROJECT NAME": "Nile River - HT Compensator", "PROJECT LOCATION": "Belgium / Netherlands (Dredging International TSHD)"}, {"S.NO": "246", "JOB NO": "SO19161", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "SDNR Valve 4\" PN10 (1no)", "QTY": "1", "PROJECT NAME": "Nile River - OVB Valve", "PROJECT LOCATION": "Belgium / Netherlands (Dredging International TSHD)"}, {"S.NO": "247", "JOB NO": "SO19162", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Storm Valve 6\" PN10 (1no)", "QTY": "1", "PROJECT NAME": "Nile River - Storm Valve", "PROJECT LOCATION": "Belgium / Netherlands (Dredging International TSHD)"}, {"S.NO": "248", "JOB NO": "SO19163", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Butterfly Valve 6\" PN10 (1no); 16\" PN16 (2no)", "QTY": "3", "PROJECT NAME": "Nile River - ERIKS Valves", "PROJECT LOCATION": "Belgium / Netherlands (Dredging International TSHD)"}, {"S.NO": "249", "JOB NO": "SO19164", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Butterfly Valve 5\" PN10 (2nos)", "QTY": "2", "PROJECT NAME": "Nile River - ERIKS Valve", "PROJECT LOCATION": "Belgium / Netherlands (Dredging International TSHD)"}, {"S.NO": "250", "JOB NO": "SO19165", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Check Valve 6\" PN10 (2nos)", "QTY": "2", "PROJECT NAME": "Nile River - Check Valves", "PROJECT LOCATION": "Belgium / Netherlands (Dredging International TSHD)"}, {"S.NO": "251", "JOB NO": "SO19166", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Butterfly Valve 4\" PN16 (3nos)", "QTY": "3", "PROJECT NAME": "Nile River - Valves for Bypass FW Gen", "PROJECT LOCATION": "Belgium / Netherlands (Dredging International TSHD)"}, {"S.NO": "252", "JOB NO": "SO19167", "CUSTOMER ID": "C003", "CUSTOMER NAME": "Harris Pye Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Butterfly Valve C/W Pneumatic Actuator 22\" 5K (4nos); 12\" 5K (1no); Butterfly Valve C/W Gear Operation & LS 14\" 5K (1no); C/W Limit Switch 3\" 5K (1no); SDNR Valve C/W Limit Switch 3\" 5K (1no)", "QTY": "8", "PROJECT NAME": "LNG Akwa Ibom", "PROJECT LOCATION": "Akwa Ibom State, Offshore Nigeria"}, {"S.NO": "253", "JOB NO": "SO19168", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Butterfly Valve 8\" PN10/16 (4nos)", "QTY": "4", "PROJECT NAME": "Nile River - Butterfly Valve Spirovent", "PROJECT LOCATION": "Belgium / Netherlands (Dredging International TSHD)"}, {"S.NO": "254", "JOB NO": "SO19169", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Butterfly Valve 16\" PN10 (1no)", "QTY": "1", "PROJECT NAME": "Nile River - ERIKS OVB Valve", "PROJECT LOCATION": "Belgium / Netherlands (Dredging International TSHD)"}, {"S.NO": "255", "JOB NO": "SO19170", "CUSTOMER ID": "C003", "CUSTOMER NAME": "Harris Pye Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Gear Box Assembly for 22\" Butterfly Valve (4nos); 12\" Butterfly Valve (1no)", "QTY": "5", "PROJECT NAME": "LNG Akwa Ibom", "PROJECT LOCATION": "Akwa Ibom State, Offshore Nigeria"}, {"S.NO": "256", "JOB NO": "SO19171", "CUSTOMER ID": "C285", "CUSTOMER NAME": "HS Compression & Process Pte. Ltd", "COUNTRY": "Singapore", "PRODUCT": "Y Strainer 2\" 150# (2nos)", "QTY": "2", "PROJECT NAME": "Anyala Madu Fields, OML 83 & 85, Offshore Nigeria", "PROJECT LOCATION": "OML 83 & 85, Offshore Nigeria"}, {"S.NO": "257", "JOB NO": "SO19173", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Globe Valve 3\" 10K (2nos)", "QTY": "2", "PROJECT NAME": "Al Bahiya - BWTS Retrofit Scope", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "258", "JOB NO": "SO19174", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Swing Check Valve 10\" PN10 (1no)", "QTY": "1", "PROJECT NAME": "Nile River - Econosto Valve", "PROJECT LOCATION": "Belgium / Netherlands (Dredging International TSHD)"}, {"S.NO": "259", "JOB NO": "SO19176", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "SDNR Valve 6\" PN16 (1no)", "QTY": "1", "PROJECT NAME": "Nile River - Econosto Globe Valve", "PROJECT LOCATION": "Belgium / Netherlands (Dredging International TSHD)"}, {"S.NO": "260", "JOB NO": "SO20001", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Butterfly Valve DN125 (1pc)", "QTY": "1", "PROJECT NAME": "Nile River", "PROJECT LOCATION": "Belgium / Netherlands (Dredging International Trailing Suction Hopper Dredger)"}, {"S.NO": "261", "JOB NO": "SO20002", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Butterfly Valve DN125 (1pc)", "QTY": "1", "PROJECT NAME": "Nile River", "PROJECT LOCATION": "Belgium / Netherlands (Dredging International Trailing Suction Hopper Dredger)"}, {"S.NO": "262", "JOB NO": "SO20004", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Rubber Bellow DN100 (1pc); DN125 (2pc)", "QTY": "3", "PROJECT NAME": "Nile River", "PROJECT LOCATION": "Belgium / Netherlands (Dredging International Trailing Suction Hopper Dredger)"}, {"S.NO": "263", "JOB NO": "SO20005", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Globe Valve DN40 (1pc)", "QTY": "1", "PROJECT NAME": "Nile River", "PROJECT LOCATION": "Belgium / Netherlands (Dredging International Trailing Suction Hopper Dredger)"}, {"S.NO": "264", "JOB NO": "SO20010", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Butterfly Valve 100mm (3pc)", "QTY": "3", "PROJECT NAME": "Mermaid Endurer - Alongside Repairs", "PROJECT LOCATION": "Gulf of Thailand, Thailand"}, {"S.NO": "265", "JOB NO": "SO20012", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Rubber Bellow DN100 (2pc)", "QTY": "2", "PROJECT NAME": "Nile River", "PROJECT LOCATION": "Belgium / Netherlands (Dredging International Trailing Suction Hopper Dredger)"}, {"S.NO": "266", "JOB NO": "SO20018", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Level Gauge 1/2\" (2pc)", "QTY": "2", "PROJECT NAME": "Carr Tide - Drydocking & Conversion", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "267", "JOB NO": "SO20025", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Air Vent Head DN80 (2pc)", "QTY": "2", "PROJECT NAME": "Carr Tide - Drydocking & Conversion", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "268", "JOB NO": "SO20026", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Wafer Check Valve 6\" (1pc); 8\" (5pc)", "QTY": "6", "PROJECT NAME": "Carr Tide - Drydocking & Conversion", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "269", "JOB NO": "SO20029", "CUSTOMER ID": "C013", "CUSTOMER NAME": "Dredging International Asia Pacific Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Pressure Reducing Valve DN40 PN25 (6pc)", "QTY": "6", "PROJECT NAME": "Cap Martin", "PROJECT LOCATION": "Belgium / Netherlands (Dredging International TSHD)"}, {"S.NO": "270", "JOB NO": "SO20034", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Carbon Steel Pipe 1m (6pcs); CON Reducer 10\"x6\" STD (3pcs); LR Elbow 6\" STD 90 DEG (2pcs); LR Elbow 10\" STD 45 DEG (5pcs)", "QTY": "16", "PROJECT NAME": "Gas Commerce", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "271", "JOB NO": "SO20035", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "High Performance Butterfly Valve (2pcs); Globe Valve (3pcs); SDNR Valve (1pc); Safety Valve (1pc); Globe Valve (1pc); High Performance Butterfly Valve (2pcs)", "QTY": "10", "PROJECT NAME": "Gas Commerce - Drydocking & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "272", "JOB NO": "SO20036", "CUSTOMER ID": "C304", "CUSTOMER NAME": "Keppel Shipyard Limited", "COUNTRY": "Singapore", "PRODUCT": "Turbine Flow Meter (1pc) Model CT-5", "QTY": "1", "PROJECT NAME": "Ingenium II", "PROJECT LOCATION": "Offshore Colombia, Caribbean Sea"}, {"S.NO": "273", "JOB NO": "SO20038", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Safety Valve (1pc); Slip On RF Flange (3pcs); Blind RF Flange (3pcs)", "QTY": "7", "PROJECT NAME": "Gas Commerce - Drydocking & Repairs", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "274", "JOB NO": "SO20039", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Butterfly Valve 8\" 150# Wafer (2pcs); Butterfly Valve 4\" 150# Wafer (7pcs)", "QTY": "9", "PROJECT NAME": "Carr Tide - Drydocking & Conversion", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "275", "JOB NO": "SO20042", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Check Valve (1pc); Check Valve (5pcs)", "QTY": "6", "PROJECT NAME": "Carr Tide - Drydocking & Conversion", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "276", "JOB NO": "SO20045", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Free Vent End-of-Line Deflagration Flame Arrester (1pc)", "QTY": "1", "PROJECT NAME": "Carr Tide - Drydocking & Conversion", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "277", "JOB NO": "SO20047", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Check Valve (2pcs)", "QTY": "2", "PROJECT NAME": "Carr Tide - Drydocking & Conversion", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "278", "JOB NO": "SO20048", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Butterfly Valve (2pcs)", "QTY": "2", "PROJECT NAME": "Carr Tide - Drydocking & Conversion", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "279", "JOB NO": "SO21001", "CUSTOMER ID": "C110", "CUSTOMER NAME": "Hertel Singapore Pte Ltd.", "COUNTRY": "Singapore", "PRODUCT": "Gate, Check Valves 1/2\" to 1\" 1500#", "QTY": "6", "PROJECT NAME": "Vopak Banyan", "PROJECT LOCATION": "Jurong Island, Singapore"}, {"S.NO": "280", "JOB NO": "SO21005", "CUSTOMER ID": "C110", "CUSTOMER NAME": "Hertel Singapore Pte Ltd.", "COUNTRY": "Singapore", "PRODUCT": "Ball Valve 3/4\" 800# SW; MonoBlock Assembly", "QTY": "4", "PROJECT NAME": "Vopak Banyan", "PROJECT LOCATION": "Jurong Island, Singapore"}, {"S.NO": "281", "JOB NO": "SO21037", "CUSTOMER ID": "C176", "CUSTOMER NAME": "Sembcorp Marine Integrated Yard Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Butterfly Valve CI Body Al Bronze 1-1/2\" - 4\" JIS 5K; Check Valve CI 1\" - 4\" JIS 5K; Ball Valve SUS316 1\" - 1-1/2\" JIS 5K; SNDR Valve CI 4\" JIS 5K; Globe Valve Bronze 1\" - 1-1/2\" JIS 5K; Quick Closing Valve Bronze 1/2\" - 1\" JIS 5K; Pressure Relief Valve CS 2\" 300#", "QTY": "109", "PROJECT NAME": "Accolade II", "PROJECT LOCATION": "Singapore (Sembcorp Marine Integrated Yard)"}, {"S.NO": "282", "JOB NO": "SO21038", "CUSTOMER ID": "C009", "CUSTOMER NAME": "JEL Maintenance Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Ball Valve SS316 6\" 150#", "QTY": "2", "PROJECT NAME": "Neste", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "283", "JOB NO": "SO21043", "CUSTOMER ID": "C304", "CUSTOMER NAME": "Keppel Shipyard Limited", "COUNTRY": "Singapore", "PRODUCT": "Globe Valve Non-Return CI", "QTY": "4", "PROJECT NAME": "Danum", "PROJECT LOCATION": "Singapore (Keppel Shipyard)"}, {"S.NO": "284", "JOB NO": "SO21044", "CUSTOMER ID": "C144", "CUSTOMER NAME": "Keppel Fels Limited", "COUNTRY": "Singapore", "PRODUCT": "Sample Device SS DN200 X PN10", "QTY": "2", "PROJECT NAME": "Dual Fuel Powered Hoppe", "PROJECT LOCATION": "Singapore (Keppel Fels Shipyard)"}, {"S.NO": "285", "JOB NO": "SO21046", "CUSTOMER ID": "C176", "CUSTOMER NAME": "Sembcorp Marine Integrated Yard Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Butterfly Valve Wafer Type CS 2-1/2\" JIS 5K with Pneumatic Actuator; Water Separator CS 1-1/2\" 42 Bar; Y-Type Strainer SS316 1-1/2\" 150#", "QTY": "5", "PROJECT NAME": "Accolade II", "PROJECT LOCATION": "Singapore (Sembcorp Marine Integrated Yard)"}, {"S.NO": "286", "JOB NO": "SO21049", "CUSTOMER ID": "C494", "CUSTOMER NAME": "Seaboard Marine Engineering Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Centrifugal Pump", "QTY": "1", "PROJECT NAME": "Gajaja", "PROJECT LOCATION": "Offshore Nigeria"}, {"S.NO": "287", "JOB NO": "SO21050", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Diaphragm Valve DI 50mm JIS 5K", "QTY": "115", "PROJECT NAME": "Al Khor", "PROJECT LOCATION": "Doha, Qatar (Nakilat LNG Fleet)"}, {"S.NO": "288", "JOB NO": "SO21052", "CUSTOMER ID": "C176", "CUSTOMER NAME": "Sembcorp Marine Integrated Yard Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Ball Valve", "QTY": "3", "PROJECT NAME": "Accolade II", "PROJECT LOCATION": "Singapore (Sembcorp Marine Integrated Yard)"}, {"S.NO": "289", "JOB NO": "SO21053", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Gate & Swing Check Valve DI 4\" 150#", "QTY": "20", "PROJECT NAME": "OH-P&M", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "290", "JOB NO": "SO21054", "CUSTOMER ID": "C144", "CUSTOMER NAME": "Keppel Fels Limited", "COUNTRY": "Singapore", "PRODUCT": "Swing Check Valve DI 6\" PN16", "QTY": "4", "PROJECT NAME": "COSL Power SPS 2021", "PROJECT LOCATION": "South China Sea, China (COSL - China Oilfield Services Limited)"}, {"S.NO": "291", "JOB NO": "SO21058", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Globe Valve BC 1-1/2\" X 32A", "QTY": "2", "PROJECT NAME": "Al Khor", "PROJECT LOCATION": "Doha, Qatar (Nakilat LNG Fleet)"}, {"S.NO": "292", "JOB NO": "SO21074", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Check, Screw Ball, Globe, Swing Check, Diaphragm, Y-Strainer & Pressure Reducing Valves 1/2\" - 10\"", "QTY": "80", "PROJECT NAME": "LNG Ejnan", "PROJECT LOCATION": "Doha, Qatar (Nakilat LNG Fleet)"}, {"S.NO": "293", "JOB NO": "SO21079", "CUSTOMER ID": "C144", "CUSTOMER NAME": "Keppel Fels Limited", "COUNTRY": "Singapore", "PRODUCT": "Globe Valve CI 6\" 125#", "QTY": "1", "PROJECT NAME": "COSL Power SPS 2021", "PROJECT LOCATION": "South China Sea, China (COSL - China Oilfield Services Limited)"}, {"S.NO": "294", "JOB NO": "SO21086", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Butterfly Valve DI 5\" 150#; Ball Valve Aluminium Bronze 2\" 150#; Check Valve Bronze B62 2\" 150#", "QTY": "30", "PROJECT NAME": "Enticer", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "295", "JOB NO": "SO21141", "CUSTOMER ID": "C498", "CUSTOMER NAME": "PEC Process Systems Pte. Ltd", "COUNTRY": "Singapore", "PRODUCT": "Flexible Hose", "QTY": "1", "PROJECT NAME": "Gas Lift Cmpr (Oxy) (Vanguard)", "PROJECT LOCATION": "South Oman (Occidental Petroleum Oman)"}, {"S.NO": "296", "JOB NO": "SO21144", "CUSTOMER ID": "C498", "CUSTOMER NAME": "PEC Process Systems Pte. Ltd", "COUNTRY": "Singapore", "PRODUCT": "Pressure Regulator Valve", "QTY": "5", "PROJECT NAME": "Gas Lift Cmpr (Oxy) (Vanguard)", "PROJECT LOCATION": "South Oman (Occidental Petroleum Oman)"}, {"S.NO": "297", "JOB NO": "SO21155", "CUSTOMER ID": "C569", "CUSTOMER NAME": "Black & Veatch Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Tag Plates & Materials", "QTY": "2116", "PROJECT NAME": "Golar Gimi FLNG", "PROJECT LOCATION": "Greater Tortue Ahmeyim (GTA), Mauritania / Senegal Border"}, {"S.NO": "298", "JOB NO": "SO21185", "CUSTOMER ID": "C498", "CUSTOMER NAME": "PEC Process Systems Pte. Ltd", "COUNTRY": "Singapore", "PRODUCT": "Shim Plates", "QTY": "52", "PROJECT NAME": "Gas Lift Cmpr (Oxy) (Vanguard)", "PROJECT LOCATION": "South Oman (Occidental Petroleum Oman)"}, {"S.NO": "299", "JOB NO": "SO21194", "CUSTOMER ID": "C144", "CUSTOMER NAME": "Keppel Fels Limited", "COUNTRY": "Singapore", "PRODUCT": "Swing Check Valve A216 WCB 2\" - 2-1/2\" 300#", "QTY": "4", "PROJECT NAME": "Floating Living Lab", "PROJECT LOCATION": "Singapore (Keppel Fels Shipyard)"}, {"S.NO": "300", "JOB NO": "SO21195", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Gate Valve Nickel Alu Bronze 12\" 150#", "QTY": "4", "PROJECT NAME": "Marine Facility & Equipment (Y-21)", "PROJECT LOCATION": "Doha, Qatar (Nakilat Erhama Shipyard, Year 2021)"}, {"S.NO": "301", "JOB NO": "SO21197", "CUSTOMER ID": "C498", "CUSTOMER NAME": "PEC Process Systems Pte. Ltd", "COUNTRY": "Singapore", "PRODUCT": "Pressure Regulating Valve", "QTY": "1", "PROJECT NAME": "Supply of Spare Part for OXY Jalal & WL Compressor", "PROJECT LOCATION": "South Oman (Occidental Petroleum Oman)"}, {"S.NO": "302", "JOB NO": "SO21214", "CUSTOMER ID": "C144", "CUSTOMER NAME": "Keppel Fels Limited", "COUNTRY": "Singapore", "PRODUCT": "Dual Plate Check Valve Wafer Type DI 8\" PN10", "QTY": "2", "PROJECT NAME": "WTIV FOWIC Repair & Conversion", "PROJECT LOCATION": "Singapore (Keppel Fels Shipyard)"}, {"S.NO": "303", "JOB NO": "SO21215", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Pressure Reducing Valve DI ASTM A536 4\" - 6\" 150#", "QTY": "3", "PROJECT NAME": "P&M Special Works (Y-21)", "PROJECT LOCATION": "Doha, Qatar (Nakilat Erhama Shipyard, Year 2021)"}, {"S.NO": "304", "JOB NO": "SO22052", "CUSTOMER ID": "C498", "CUSTOMER NAME": "PEC Process Systems Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Reflex Flat Glass Level Gauge", "QTY": "3", "PROJECT NAME": "OXY Oman", "PROJECT LOCATION": "South Oman (Occidental Petroleum Oman)"}, {"S.NO": "305", "JOB NO": "SO22084", "CUSTOMER ID": "C498", "CUSTOMER NAME": "PEC Process Systems Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Flexible Hose, Size: 2-1/2\"", "QTY": "1", "PROJECT NAME": "OXY Oman", "PROJECT LOCATION": "South Oman (Occidental Petroleum Oman)"}, {"S.NO": "306", "JOB NO": "SO22159", "CUSTOMER ID": "C498", "CUSTOMER NAME": "PEC Process Systems Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Ball Valve, Gate Valve, Globe Valve, DBB Valve, Check Valve, Butterfly Valve", "QTY": "246", "PROJECT NAME": "Yinson FPSO Atlanta", "PROJECT LOCATION": "Santos Basin, Offshore Brazil (Block BS-4)"}, {"S.NO": "307", "JOB NO": "SO22160", "CUSTOMER ID": "C498", "CUSTOMER NAME": "PEC Process Systems Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Ball Valve, Gate Valve, Globe Valve, DBB Valve, Check Valve, Butterfly Valve", "QTY": "219", "PROJECT NAME": "Yinson FPSO Atlanta", "PROJECT LOCATION": "Santos Basin, Offshore Brazil (Block BS-4)"}, {"S.NO": "308", "JOB NO": "SO22161", "CUSTOMER ID": "C498", "CUSTOMER NAME": "PEC Process Systems Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Ball Valve, Gate Valve, Globe Valve, DBB Valve, Check Valve, Butterfly Valve", "QTY": "101", "PROJECT NAME": "Yinson FPSO Atlanta", "PROJECT LOCATION": "Santos Basin, Offshore Brazil (Block BS-4)"}, {"S.NO": "309", "JOB NO": "SO22162", "CUSTOMER ID": "C498", "CUSTOMER NAME": "PEC Process Systems Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Ball Valve, Gate Valve, Globe Valve, DBB Valve, Check Valve, Butterfly Valve", "QTY": "38", "PROJECT NAME": "Yinson FPSO Atlanta", "PROJECT LOCATION": "Santos Basin, Offshore Brazil (Block BS-4)"}, {"S.NO": "310", "JOB NO": "SO22163", "CUSTOMER ID": "C498", "CUSTOMER NAME": "PEC Process Systems Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Ball Valve 3/4\" 150#", "QTY": "2", "PROJECT NAME": "Yinson FPSO Atlanta", "PROJECT LOCATION": "Santos Basin, Offshore Brazil (Block BS-4)"}, {"S.NO": "311", "JOB NO": "SO22175", "CUSTOMER ID": "C498", "CUSTOMER NAME": "PEC Process Systems Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Gate Valve 3/4\" 150#", "QTY": "18", "PROJECT NAME": "Yinson FPSO Atlanta", "PROJECT LOCATION": "Santos Basin, Offshore Brazil (Block BS-4)"}, {"S.NO": "312", "JOB NO": "SO22182", "CUSTOMER ID": "C498", "CUSTOMER NAME": "PEC Process Systems Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Ball Valve, Gate Valve, DBB Valve", "QTY": "26", "PROJECT NAME": "Yinson FPSO Atlanta", "PROJECT LOCATION": "Santos Basin, Offshore Brazil (Block BS-4)"}, {"S.NO": "313", "JOB NO": "S022184", "CUSTOMER ID": "C498", "CUSTOMER NAME": "PEC Process Systems Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Ball Valve, Gate Valve, Butterfly Valve", "QTY": "6", "PROJECT NAME": "Yinson FPSO Atlanta", "PROJECT LOCATION": "Santos Basin, Offshore Brazil (Block BS-4)"}, {"S.NO": "314", "JOB NO": "SO23196", "CUSTOMER ID": "C498", "CUSTOMER NAME": "PEC Process Systems Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Ball Valve, Gate Valve, Globe Valve, DBB Valve, Check Valve, Butterfly Valve", "QTY": "72", "PROJECT NAME": "Yinson FPSO Atlanta", "PROJECT LOCATION": "Santos Basin, Offshore Brazil (Block BS-4)"}, {"S.NO": "315", "JOB NO": "SO23198", "CUSTOMER ID": "C498", "CUSTOMER NAME": "PEC Process Systems Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Interlocks for Ball Valve, Gate Valve, Butterfly Valve", "QTY": "64", "PROJECT NAME": "Yinson FPSO Atlanta", "PROJECT LOCATION": "Santos Basin, Offshore Brazil (Block BS-4)"}, {"S.NO": "316", "JOB NO": "SO23199", "CUSTOMER ID": "C498", "CUSTOMER NAME": "PEC Process Systems Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Ball Valve, Gate Valve, Globe Valve, DBB Valve, Check Valve, Butterfly Valve", "QTY": "63", "PROJECT NAME": "Yinson FPSO Atlanta", "PROJECT LOCATION": "Santos Basin, Offshore Brazil (Block BS-4)"}, {"S.NO": "317", "JOB NO": "SO23200", "CUSTOMER ID": "C498", "CUSTOMER NAME": "PEC Process Systems Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Level Gauge 3/4\" 150#", "QTY": "6", "PROJECT NAME": "Yinson FPSO Atlanta", "PROJECT LOCATION": "Santos Basin, Offshore Brazil (Block BS-4)"}, {"S.NO": "318", "JOB NO": "SO23215", "CUSTOMER ID": "C090", "CUSTOMER NAME": "Nakilat-Keppel Offshore & Marine Ltd.", "COUNTRY": "Qatar", "PRODUCT": "Multiple JIS Valves including Butterfly, Gate, Needle, Globe, SDNR, Ball Valves + Ball Valve Ferrule Ø8 x 1/4\" 16K (10nos) + Pressure Reducing Valve 40A 16K (13nos)", "QTY": "113", "PROJECT NAME": "Al Utouriya - BWTS & DD", "PROJECT LOCATION": "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)"}, {"S.NO": "319", "JOB NO": "SO24062852", "CUSTOMER ID": "C304", "CUSTOMER NAME": "Seatrium O&G (Americas) Limited", "COUNTRY": "Singapore", "PRODUCT": "Air Release & Vacuum Valve, Material A351-CF8M, Size 3/4\" 150# (27nos), Brand: PROSAVE", "QTY": "27", "PROJECT NAME": "Buzios Field Area Development - Petrobras 78 (P-78)", "PROJECT LOCATION": "Santos Basin, Offshore Brazil (Búzios Field)"}, {"S.NO": "320", "JOB NO": "SO241127104", "CUSTOMER ID": "C498", "CUSTOMER NAME": "PEC Process Systems Pte. Ltd", "COUNTRY": "Singapore", "PRODUCT": "Ball Valve 1-1/2\" 900# FEVISA SPAIN; Pneumatic Actuator BETTIS CBB Series; Limit Switch WESTLOCK 2200; SOV Bifold FP06P; Filter Regulator Bifold SH06", "QTY": "1", "PROJECT NAME": "Toucan Compression Upgrade Project", "PROJECT LOCATION": "Toucan Field, Gabon (Assala Energy / West Africa Offshore)"}, {"S.NO": "321", "JOB NO": "SO24101787", "CUSTOMER ID": "C498", "CUSTOMER NAME": "PEC Process Systems Pte. Ltd", "COUNTRY": "Singapore", "PRODUCT": "Ball Valve 10\" 300# (1nos); 2\" 300# (2nos); 4\" 900# (2nos); 2\" 900# (2nos) FEVISA SPAIN; Pneumatic Actuator BETTIS CBB; Limit Switch WESTLOCK 2200; SOV Bifold FP06P; Filter Regulator Bifold SH06", "QTY": "6", "PROJECT NAME": "Toucan Compression Upgrade Project", "PROJECT LOCATION": "Toucan Field, Gabon (Assala Energy / West Africa Offshore)"}, {"S.NO": "322", "JOB NO": "SO241219113", "CUSTOMER ID": "C499", "CUSTOMER NAME": "PEC Process Systems Pte. Ltd", "COUNTRY": "Singapore", "PRODUCT": "Ball Valve, Gate Valve, Globe Valve, DBB Valve, Check Valve", "QTY": "123", "PROJECT NAME": "Toucan Compression Upgrade Project", "PROJECT LOCATION": "Toucan Field, Gabon (Assala Energy / West Africa Offshore)"}, {"S.NO": "323", "JOB NO": "SO250212123", "CUSTOMER ID": "C756", "CUSTOMER NAME": "John Crane Singapore Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Ball Valve 1\" 1500# OMB Italy; Pneumatic Actuator Rotork RC Series; Limit Switch SOLDO SQ Series", "QTY": "1", "PROJECT NAME": "Yinson FPSO Abigail Joseph", "PROJECT LOCATION": "Offshore Nigeria (OML 127, Erha Field Area)"}, {"S.NO": "324", "JOB NO": "SO250313131", "CUSTOMER ID": "C498", "CUSTOMER NAME": "PEC Process Systems Pte. Ltd", "COUNTRY": "Singapore", "PRODUCT": "Pressure Safety Valve - Bellow Design, Pilot Design", "QTY": "4", "PROJECT NAME": "Block 15-1/05 Lac Da Vang Oil Field Development Project", "PROJECT LOCATION": "Cuu Long Basin, Offshore Vietnam (Block 15-1/05)"}, {"S.NO": "325", "JOB NO": "SO250402135", "CUSTOMER ID": "C849", "CUSTOMER NAME": "Promor Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Ball Valve, Gate Valve, Globe Valve, DBB Valve, Check Valve, Butterfly Valve", "QTY": "113", "PROJECT NAME": "Block 15-1/05 Lac Da Vang Oil Field Development Project", "PROJECT LOCATION": "Cuu Long Basin, Offshore Vietnam (Block 15-1/05)"}, {"S.NO": "326", "JOB NO": "SO250515140", "CUSTOMER ID": "C849", "CUSTOMER NAME": "Promor Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Interlocks for Ball Valve, Gate Valve, Globe Valve", "QTY": "10", "PROJECT NAME": "Block 15-1/05 Lac Da Vang Oil Field Development Project", "PROJECT LOCATION": "Cuu Long Basin, Offshore Vietnam (Block 15-1/05)"}, {"S.NO": "327", "JOB NO": "SO260223233", "CUSTOMER ID": "C782", "CUSTOMER NAME": "Seatrium (SG) Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Air Release & Vacuum Valve A351-CF8M 3/4\" 150# (30nos) Brand AGS; Air Release & Vacuum Valve A148-C95800 4\" 150# (37nos) Brand AGS", "QTY": "67", "PROJECT NAME": "Atapu-2 Field Area Development - Petrobras 84 (P-84)", "PROJECT LOCATION": "Santos Basin, Offshore Brazil (Atapu Field)"}, {"S.NO": "328", "JOB NO": "SO260223234", "CUSTOMER ID": "C782", "CUSTOMER NAME": "Seatrium (SG) Pte Ltd", "COUNTRY": "Singapore", "PRODUCT": "Air Release & Vacuum Valve A351-CF8M 3/4\" 150# (30nos) Brand AGS; Air Release & Vacuum Valve A148-C95800 4\" 150# (37nos) Brand AGS", "QTY": "67", "PROJECT NAME": "Sepia-2 Field Area Development - Petrobras 85 (P-85)", "PROJECT LOCATION": "Santos Basin, Offshore Brazil (Sépia Field)"}];
+const LOCATIONS = {"Singapore (Keppel Singmarine Shipyard)": {"lat": 1.265, "lng": 103.717, "country": "Singapore", "short": "Keppel Singmarine, Singapore"}, "Doha, Qatar (Nakilat-Keppel Offshore & Marine, Erhama Yard)": {"lat": 25.272, "lng": 51.617, "country": "Qatar", "short": "Erhama Yard, Doha"}, "Doha, Qatar (Nakilat LNG Fleet)": {"lat": 25.92, "lng": 51.55, "country": "Qatar", "short": "Ras Laffan LNG Fleet"}, "Belgium / Netherlands (Dredging International TSHD)": {"lat": 51.22, "lng": 4.4, "country": "Belgium", "short": "Dredging Intl. TSHD"}, "Santos Basin, Offshore Brazil (Block BS-4)": {"lat": -24.5, "lng": -43.5, "country": "Brazil", "short": "Santos Basin BS-4"}, "Offshore Brazil, Santos Basin (SBM FPSO Conversion, Singapore Shipyard)": {"lat": -23.5, "lng": -42.5, "country": "Brazil", "short": "SBM FPSO CEDADE"}, "Kitan Field, Timor Sea, East Timor": {"lat": -9.5, "lng": 127.0, "country": "East Timor", "short": "Kitan Field, Timor Sea"}, "Keppel Nantong Shipyard, Nantong, China": {"lat": 32.02, "lng": 120.85, "country": "China", "short": "Keppel Nantong, China"}, "South Oman (Occidental Petroleum Oman)": {"lat": 18.0, "lng": 55.0, "country": "Oman", "short": "South Oman (Oxy)"}, "Singapore": {"lat": 1.35, "lng": 103.85, "country": "Singapore", "short": "Singapore"}, "Singapore / Southeast Asia": {"lat": 1.3, "lng": 103.8, "country": "Singapore", "short": "Singapore / SE Asia"}, "Singapore (Keppel Fels Shipyard)": {"lat": 1.34, "lng": 103.685, "country": "Singapore", "short": "Keppel FELS, Singapore"}, "Belgium / Netherlands (Dredging International Trailing Suction Hopper Dredger)": {"lat": 51.25, "lng": 4.45, "country": "Belgium", "short": "Dredging Intl. (BE/NL)"}, "Chennai, India (Shipping Corporation of India)": {"lat": 13.08, "lng": 80.27, "country": "India", "short": "Chennai, India (SCI)"}, "Offshore Colombia, Caribbean Sea": {"lat": 10.5, "lng": -75.5, "country": "Colombia", "short": "Offshore Colombia"}, "Doha, Qatar": {"lat": 25.28, "lng": 51.53, "country": "Qatar", "short": "Doha, Qatar"}, "Offshore India / Abu Dhabi, UAE": {"lat": 24.46, "lng": 54.37, "country": "UAE", "short": "Abu Dhabi / Offshore IN"}, "Jurong Island, Singapore": {"lat": 1.27, "lng": 103.72, "country": "Singapore", "short": "Jurong Island, SG"}, "Akwa Ibom State, Offshore Nigeria": {"lat": 4.5, "lng": 8.0, "country": "Nigeria", "short": "Akwa Ibom, Nigeria"}, "Singapore (Sembcorp Marine Integrated Yard)": {"lat": 1.39, "lng": 103.93, "country": "Singapore", "short": "Sembcorp Marine, SG"}, "Toucan Field, Gabon (Assala Energy / West Africa Offshore)": {"lat": -0.5, "lng": 9.0, "country": "Gabon", "short": "Toucan Field, Gabon"}, "Cuu Long Basin, Offshore Vietnam (Block 15-1/05)": {"lat": 10.5, "lng": 108.5, "country": "Vietnam", "short": "Cuu Long Basin, VN"}, "Block 32, Offshore Luanda, Angola": {"lat": -7.0, "lng": 11.5, "country": "Angola", "short": "Block 32, Angola"}, "Santos Basin, Offshore Brazil": {"lat": -24.0, "lng": -43.0, "country": "Brazil", "short": "Santos Basin, Brazil"}, "Caspian Sea, Baku, Azerbaijan (Baku Shipyard)": {"lat": 40.37, "lng": 49.85, "country": "Azerbaijan", "short": "Baku Shipyard"}, "Ras Laffan, Qatar (Milaha Shipping)": {"lat": 25.92, "lng": 51.55, "country": "Qatar", "short": "Ras Laffan (Milaha)"}, "Singapore (Keppel Shipyard)": {"lat": 1.27, "lng": 103.71, "country": "Singapore", "short": "Keppel Shipyard, SG"}, "South China Sea, China (COSL - China Oilfield Services Limited)": {"lat": 18.0, "lng": 113.0, "country": "China", "short": "South China Sea (COSL)"}, "Doha, Qatar (Nakilat Erhama Shipyard, Year 2021)": {"lat": 25.275, "lng": 51.62, "country": "Qatar", "short": "Erhama Yard 2021"}, "Singapore (Retrofit) / Chukchi Sea, Alaska, USA": {"lat": 71.5, "lng": -170.0, "country": "USA", "short": "Chukchi Sea, Alaska"}, "Indonesia": {"lat": -2.5, "lng": 118.0, "country": "Indonesia", "short": "Indonesia"}, "Risavika, Stavanger, Norway": {"lat": 58.97, "lng": 5.62, "country": "Norway", "short": "Risavika, Norway"}, "Indonesia (Natural Gas Distribution Pipeline)": {"lat": -2.0, "lng": 117.5, "country": "Indonesia", "short": "Indonesia Gas Pipeline"}, "Offshore Brazil": {"lat": -22.0, "lng": -40.0, "country": "Brazil", "short": "Offshore Brazil"}, "Offshore Lagos, Nigeria (Ibeju-Lekki)": {"lat": 6.45, "lng": 3.85, "country": "Nigeria", "short": "Lagos, Nigeria"}, "Offshore Malaysia / Southeast Asia": {"lat": 4.0, "lng": 110.0, "country": "Malaysia", "short": "Offshore Malaysia"}, "Bul Hanine Oilfield, Offshore Qatar": {"lat": 25.5, "lng": 52.8, "country": "Qatar", "short": "Bul Hanine, Qatar"}, "Portovaya Bay, Vyborg, Russia (Baltic Sea)": {"lat": 60.5, "lng": 28.7, "country": "Russia", "short": "Portovaya Bay, Russia"}, "Bonny River, Nigeria": {"lat": 4.45, "lng": 7.16, "country": "Nigeria", "short": "Bonny River, Nigeria"}, "Tasmania, Australia (Incat Shipyard)": {"lat": -42.88, "lng": 147.33, "country": "Australia", "short": "Tasmania, Australia"}, "Krishna-Godavari Basin, Bay of Bengal, India": {"lat": 16.5, "lng": 82.5, "country": "India", "short": "KG Basin, India"}, "OML 83 & 85, Offshore Nigeria": {"lat": 4.0, "lng": 6.5, "country": "Nigeria", "short": "OML 83/85, Nigeria"}, "Gulf of Thailand, Thailand": {"lat": 9.0, "lng": 101.5, "country": "Thailand", "short": "Gulf of Thailand"}, "Offshore Nigeria": {"lat": 5.0, "lng": 5.0, "country": "Nigeria", "short": "Offshore Nigeria"}, "Greater Tortue Ahmeyim (GTA), Mauritania / Senegal Border": {"lat": 16.0, "lng": -17.5, "country": "Mauritania", "short": "GTA, MR/SN Border"}, "Santos Basin, Offshore Brazil (Búzios Field)": {"lat": -25.5, "lng": -43.2, "country": "Brazil", "short": "Búzios Field, Brazil"}, "Offshore Nigeria (OML 127, Erha Field Area)": {"lat": 4.4, "lng": 4.5, "country": "Nigeria", "short": "Erha Field, Nigeria"}, "Santos Basin, Offshore Brazil (Atapu Field)": {"lat": -25.0, "lng": -42.5, "country": "Brazil", "short": "Atapu Field, Brazil"}, "Santos Basin, Offshore Brazil (Sépia Field)": {"lat": -25.5, "lng": -42.0, "country": "Brazil", "short": "Sépia Field, Brazil"}};
+const COUNTRY_PALETTE = {"Singapore": ["#00BBF9", "🇸🇬"], "Qatar": ["#F15BB5", "🇶🇦"], "China": ["#E63946", "🇨🇳"], "India": ["#FF9F1C", "🇮🇳"], "Indonesia": ["#9B5DE5", "🇮🇩"], "Azerbaijan": ["#FF6B6B", "🇦🇿"], "UAE": ["#06D6A0", "🇦🇪"], "Brazil": ["#FFD93D", "🇧🇷"], "Belgium": ["#FF8C42", "🇧🇪"], "East Timor": ["#C77DFF", "🇹🇱"], "Oman": ["#2EC4B6", "🇴🇲"], "Nigeria": ["#06A77D", "🇳🇬"], "Colombia": ["#FCBF49", "🇨🇴"], "Gabon": ["#80B918", "🇬🇦"], "Vietnam": ["#FF477E", "🇻🇳"], "Angola": ["#B23A48", "🇦🇴"], "Russia": ["#6A4C93", "🇷🇺"], "Norway": ["#4361EE", "🇳🇴"], "USA": ["#4D908E", "🇺🇸"], "Mauritania": ["#F4A261", "🇲🇷"], "Australia": ["#E76F51", "🇦🇺"], "Malaysia": ["#F94144", "🇲🇾"], "Thailand": ["#43AA8B", "🇹🇭"]};
+const HQ = {lat:1.4216,lng:103.8344,name:"AGS Flow Solution HQ",short:"Yishun, Singapore"};
+
+/* helpers */
+function esc(s){
+  if(s===null||s===undefined) return '';
+  return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+}
+function darken(hex,pct){
+  const n=parseInt(hex.slice(1),16);
+  let r=(n>>16)&255,g=(n>>8)&255,b=n&255;
+  r=Math.max(0,Math.round(r*(1-pct/100)));
+  g=Math.max(0,Math.round(g*(1-pct/100)));
+  b=Math.max(0,Math.round(b*(1-pct/100)));
+  return '#'+[r,g,b].map(v=>v.toString(16).padStart(2,'0')).join('');
+}
+function hexToRgb(hex){
+  const n=parseInt(hex.slice(1),16);
+  return [(n>>16)&255,(n>>8)&255,n&255];
+}
+
+/* Marker icons: emoji ship on a colored disc + AGS logo disc for HQ */
+const AGS_LOGO_SRC = document.querySelector('.logo-wrap img').src;
+
+const SHIP_ICON_SVG = `<div class="ship-badge"><span class="ship-emoji">🚢</span></div>`;
+
+const HQ_ICON_SVG = `<div class="hq-glow"></div><div class="hq-badge"><img src="${AGS_LOGO_SRC}" alt="AGS HQ"></div>`;
+
+/* Custom tooltip for ship markers */
+let _shipTip;
+function ensureShipTip(){
+  if(_shipTip) return _shipTip;
+  _shipTip=document.createElement('div');
+  _shipTip.className='globe-tt ship-tip';
+  _shipTip.style.cssText='position:fixed;z-index:200;pointer-events:none;opacity:0;transition:opacity .15s ease;left:0;top:0';
+  document.body.appendChild(_shipTip);
+  return _shipTip;
+}
+function showShipTip(d){
+  const tip=ensureShipTip();
+  if(d.isHQ){
+    tip.innerHTML=`<div class="tt-name">⭐ ${esc(d.name)}</div>
+      <div class="tt-country">📍 ${esc(d.short)}</div>
+      <div class="tt-cta">Headquarters · Origin of all routes</div>`;
+  }else{
+    tip.innerHTML=`<div class="tt-name">🚢 ${esc(d.short)}</div>
+      <div class="tt-country">${esc(d.flag)} ${esc(d.country)}</div>
+      <div class="tt-stats">
+        <div class="tt-stat"><strong>${d.records.length}</strong>Records</div>
+        <div class="tt-stat"><strong>${d.qty}</strong>Qty</div>
+        <div class="tt-stat"><strong>${d.customers.size}</strong>Customers</div>
+      </div>
+      <div class="tt-cta">Click for full details →</div>`;
+  }
+  tip.style.opacity='1';
+}
+function positionShipTip(ev){
+  if(!_shipTip) return;
+  const x=ev.clientX||0, y=ev.clientY||0;
+  /* keep tooltip on screen */
+  const rect=_shipTip.getBoundingClientRect();
+  let left=x+16, top=y+16;
+  if(left+rect.width>window.innerWidth-8) left=x-rect.width-16;
+  if(top+rect.height>window.innerHeight-8) top=y-rect.height-16;
+  _shipTip.style.left=left+'px';
+  _shipTip.style.top=top+'px';
+}
+function hideShipTip(){
+  if(_shipTip) _shipTip.style.opacity='0';
+}
+function getCountryColor(country){
+  const v=COUNTRY_PALETTE[country];
+  return v?v[0]:'#94A3B8';
+}
+function getCountryFlag(country){
+  const v=COUNTRY_PALETTE[country];
+  return v?v[1]:'🌐';
+}
+
+/* ==================== AGGREGATION ==================== */
+const LOC_AGG = {};  /* { locName: {lat,lng,country,short,records:[...],qty,customers:Set,products:Set} } */
+RECORDS.forEach(r=>{
+  const loc=r["PROJECT LOCATION"];
+  if(!loc||!LOCATIONS[loc]) return;
+  if(!LOC_AGG[loc]){
+    const meta=LOCATIONS[loc];
+    LOC_AGG[loc]={
+      name:loc,short:meta.short,country:meta.country,
+      lat:meta.lat,lng:meta.lng,
+      color:getCountryColor(meta.country),flag:getCountryFlag(meta.country),
+      records:[],qty:0,customers:new Set(),products:new Set(),projects:new Set()
+    };
+  }
+  const a=LOC_AGG[loc];
+  a.records.push(r);
+  a.qty+=parseInt(r.QTY)||0;
+  if(r["CUSTOMER NAME"]) a.customers.add(r["CUSTOMER NAME"]);
+  if(r.PRODUCT) a.products.add(r.PRODUCT);
+  if(r["PROJECT NAME"]) a.projects.add(r["PROJECT NAME"]);
+});
+const LOC_LIST=Object.values(LOC_AGG).sort((a,b)=>b.records.length-a.records.length);
+
+/* quick stats */
+document.getElementById('qsRecords').textContent=RECORDS.length;
+document.getElementById('qsLocations').textContent=LOC_LIST.length;
+document.getElementById('qsCustomers').textContent=new Set(RECORDS.map(r=>r["CUSTOMER NAME"])).size;
+
+/* overlay stats on globe */
+document.getElementById('giStats').innerHTML=
+  `<div class="gi-stat"><strong>${RECORDS.length}</strong>Records</div>
+   <div class="gi-stat"><strong>${LOC_LIST.length}</strong>Locations</div>
+   <div class="gi-stat"><strong>${new Set(RECORDS.map(r=>r.COUNTRY)).size}</strong>Countries</div>`;
+
+/* ==================== CLUSTER SPREADING ==================== */
+/* Many AGS sites cluster around the same port (7 Singapore, 7 Qatar, 6 Brazil-Santos,
+   6 Nigeria…). At globe scale these would visually merge into one marker.
+   We fan overlapping markers out around their cluster centroid by overwriting
+   lat/lng directly. Originals are saved as origLat/origLng for reference. */
+function spreadOverlappingLocations(list){
+  /* save originals */
+  list.forEach(l=>{ l.origLat=l.lat; l.origLng=l.lng; });
+
+  /* union-find clustering: connect any two locations within 1.6° */
+  const N=list.length;
+  const parent=Array.from({length:N},(_,i)=>i);
+  function find(i){ while(parent[i]!==i){ parent[i]=parent[parent[i]]; i=parent[i]; } return i; }
+  function union(i,j){ const ri=find(i),rj=find(j); if(ri!==rj) parent[ri]=rj; }
+  for(let i=0;i<N;i++){
+    for(let j=i+1;j<N;j++){
+      const dLat=Math.abs(list[i].origLat-list[j].origLat);
+      const dLng=Math.abs(list[i].origLng-list[j].origLng);
+      if(dLat<1.6 && dLng<1.6) union(i,j);
+    }
+  }
+  const groups={};
+  for(let i=0;i<N;i++){
+    const r=find(i);
+    (groups[r]=groups[r]||[]).push(i);
+  }
+  /* fan each multi-member cluster around its centroid */
+  Object.values(groups).forEach(group=>{
+    if(group.length<2) return;
+    const cLat=group.reduce((s,i)=>s+list[i].origLat,0)/group.length;
+    const cLng=group.reduce((s,i)=>s+list[i].origLng,0)/group.length;
+    const radius=Math.max(2.4,1.6+group.length*0.45);
+    /* biggest member sits at centroid, others fan around */
+    const sorted=[...group].sort((a,b)=>list[b].records.length-list[a].records.length);
+    sorted.forEach((idx,k)=>{
+      if(k===0){
+        list[idx].lat=cLat;
+        list[idx].lng=cLng;
+      }else{
+        const angle=((k-1)/(sorted.length-1))*2*Math.PI - Math.PI/2;
+        list[idx].lat=cLat+radius*Math.cos(angle);
+        list[idx].lng=cLng+radius*Math.sin(angle);
+      }
+    });
+  });
+}
+spreadOverlappingLocations(LOC_LIST);
+
+/* ==================== PAGE SWITCH ==================== */
+function switchPage(p){
+  document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.nav-tabs button').forEach(el=>el.classList.remove('active'));
+  document.getElementById('page-'+p).classList.add('active');
+  document.getElementById('tab-'+p).classList.add('active');
+  if(p==='data') renderTable();
+  if(p==='map'){
+    /* force globe to resize after layout change */
+    setTimeout(()=>{ if(globe){ try{ globe.width(globeContainer.offsetWidth); globe.height(globeContainer.offsetHeight); }catch(e){} } },50);
+  }
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.getElementById('globeBtn').addEventListener('click',()=>{
+  document.getElementById('mapSection').scrollIntoView({behavior:'smooth',block:'start'});
+});
+
+/* ==================== 3D GLOBE ==================== */
+const globeContainer=document.getElementById('globe3D');
+let globe;
+let isAutoRotating=true;
+
+function buildGlobe(){
+  /* check library loaded */
+  if(typeof Globe!=='function'){
+    document.getElementById('globeLoading').innerHTML=
+      '<div style="text-align:center;color:#FCA5A5;max-width:340px;font-size:.8rem;line-height:1.5">⚠ 3D Globe library failed to load.<br>Please check your internet connection and refresh the page.</div>';
+    return;
+  }
+  /* wait for container to have dimensions */
+  if(globeContainer.offsetWidth<10 || globeContainer.offsetHeight<10){
+    setTimeout(buildGlobe,120);
+    return;
+  }
+  try{
+    _buildGlobeImpl();
+  }catch(err){
+    console.error('Globe init error:',err);
+    document.getElementById('globeLoading').innerHTML=
+      '<div style="text-align:center;color:#FCA5A5;max-width:340px;font-size:.8rem;line-height:1.5">⚠ Globe could not initialise.<br><span style="opacity:.7">'+esc(err.message||String(err))+'</span></div>';
+  }
+}
+
+function _buildGlobeImpl(){
+  globe=Globe()(globeContainer)
+    .globeImageUrl('https://unpkg.com/three-globe@2.31.0/example/img/earth-blue-marble.jpg')
+    .bumpImageUrl('https://unpkg.com/three-globe@2.31.0/example/img/earth-topology.png')
+    .backgroundImageUrl('https://unpkg.com/three-globe@2.31.0/example/img/night-sky.png')
+    .showAtmosphere(true)
+    .atmosphereColor('#7DD3FC')
+    .atmosphereAltitude(0.18)
+    .width(globeContainer.offsetWidth)
+    .height(globeContainer.offsetHeight);
+
+  /* HQ marker - special; uses true Singapore HQ lat/lng */
+  const hqPoint={...HQ,country:'Singapore',isHQ:true,color:'#FFD93D',records:[]};
+
+  /* Project location points - lat/lng have already been fanned out by spreadOverlappingLocations */
+  const points=LOC_LIST.slice();
+  points.push(hqPoint);
+
+  globe
+    .htmlElementsData(points)
+    .htmlLat(d=>d.lat)
+    .htmlLng(d=>d.lng)
+    .htmlAltitude(d=>d.isHQ?0.04:0.02)
+    .htmlElement(d=>{
+      const wrap=document.createElement('div');
+      wrap.className=d.isHQ?'ship-marker hq-marker':'ship-marker';
+      /* size scales by project count - more visible across the board */
+      const px=d.isHQ?60:Math.max(34,Math.min(58,30+d.records.length*0.55));
+      wrap.style.setProperty('--ship-size',px+'px');
+      wrap.style.setProperty('--ship-color',d.isHQ?'#FFD93D':d.color);
+      /* INNER anchor holds all animations + transforms. Outer is positioned
+         by globe.gl via inline transform; we must NOT animate transform on it. */
+      const anchor=document.createElement('div');
+      anchor.className='ship-anchor';
+      const labelText=d.isHQ?'AGS HQ':d.short;
+      const countBadge=d.isHQ?'':`<span class="ship-count">${d.records.length}</span>`;
+      anchor.innerHTML=
+        (d.isHQ?HQ_ICON_SVG:SHIP_ICON_SVG)+
+        countBadge+
+        `<div class="ship-label">${esc(labelText)}</div>`;
+      /* interactions on the anchor */
+      anchor.addEventListener('click',ev=>{
+        ev.stopPropagation();
+        if(d.isHQ){ resetGlobeView(); return; }
+        openLocationModal(d.name);
+      });
+      anchor.addEventListener('mouseenter',ev=>{ showShipTip(d); positionShipTip(ev); });
+      anchor.addEventListener('mousemove',positionShipTip);
+      anchor.addEventListener('mouseleave',hideShipTip);
+      anchor.addEventListener('touchstart',ev=>{ showShipTip(d); positionShipTip(ev.touches[0]); },{passive:true});
+      wrap.appendChild(anchor);
+      return wrap;
+    });
+
+  /* Ship routes - animated arcs from HQ to every location */
+  const arcs=LOC_LIST.filter(l=>{
+    /* skip routes too close to HQ to avoid clutter */
+    return Math.abs(l.lat-HQ.lat)>1 || Math.abs(l.lng-HQ.lng)>1;
+  }).map((l,i)=>({
+    startLat:HQ.lat,startLng:HQ.lng,
+    endLat:l.lat,endLng:l.lng,
+    color:[l.color, '#FFFFFF'],
+    name:l.short,
+    stroke:Math.max(0.3,Math.min(1.2,Math.log10(l.records.length+1)*0.6)),
+    /* stagger animation timing */
+    animTime:1800+(i%5)*400
+  }));
+
+  globe
+    .arcsData(arcs)
+    .arcStartLat('startLat').arcStartLng('startLng')
+    .arcEndLat('endLat').arcEndLng('endLng')
+    .arcColor('color')
+    .arcStroke('stroke')
+    .arcAltitudeAutoScale(0.45)
+    .arcDashLength(0.35)
+    .arcDashGap(0.65)
+    .arcDashAnimateTime(d=>d.animTime)
+    .arcsTransitionDuration(0)
+    .arcLabel(d=>`<div class="globe-tt">
+      <div class="tt-name">🚢 Shipping Route</div>
+      <div class="tt-country">Singapore → ${esc(d.name)}</div>
+    </div>`);
+
+  /* Pulsing rings on top 12 locations - using the spread lat/lng */
+  const topLocs=LOC_LIST.slice(0,12);
+  const rings=topLocs.map(l=>({
+    lat:l.lat,lng:l.lng,
+    maxR:Math.max(2.5,Math.log10(l.records.length+1)*3.5),
+    propSpeed:Math.max(1.4,Math.log10(l.records.length+1)*1.5),
+    color:l.color
+  }));
+  /* HQ pulse too */
+  rings.unshift({lat:HQ.lat,lng:HQ.lng,maxR:5,propSpeed:2.5,color:'#FFD93D'});
+
+  globe
+    .ringsData(rings)
+    .ringColor(d=>t=>{
+      const rgb=hexToRgb(d.color);
+      return `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${(1-t)*0.85})`;
+    })
+    .ringMaxRadius('maxR')
+    .ringPropagationSpeed('propSpeed')
+    .ringRepeatPeriod(d=>1800/d.propSpeed);
+
+  /* Default view: Asia-Pacific cluster — Singapore, India, Qatar all visible at once */
+  const defaultView={lat:8,lng:92,altitude:1.85};
+  globe.pointOfView(defaultView,0);
+
+  /* Auto-rotate */
+  const controls=globe.controls();
+  controls.autoRotate=true;
+  controls.autoRotateSpeed=0.45;
+  controls.enableDamping=true;
+  controls.dampingFactor=0.08;
+  controls.minDistance=120;
+  controls.maxDistance=600;
+
+  /* stop auto-rotate when user interacts */
+  controls.addEventListener('start',()=>{
+    if(isAutoRotating && controls.autoRotate){
+      /* user has started interacting - pause briefly */
+    }
+  });
+
+  /* hide loading */
+  document.getElementById('globeLoading').style.display='none';
+
+  /* button handlers */
+  document.getElementById('zoomIn').onclick=()=>{
+    const pov=globe.pointOfView();
+    globe.pointOfView({altitude:Math.max(0.35,pov.altitude*0.7)},600);
+  };
+  document.getElementById('zoomOut').onclick=()=>{
+    const pov=globe.pointOfView();
+    globe.pointOfView({altitude:Math.min(4,pov.altitude*1.4)},600);
+  };
+  document.getElementById('resetView').onclick=resetGlobeView;
+  document.getElementById('worldView').onclick=()=>{
+    globe.pointOfView({lat:0,lng:30,altitude:2.8},900);
+  };
+
+  document.getElementById('autoRotateBtn').onclick=function(){
+    isAutoRotating=!isAutoRotating;
+    controls.autoRotate=isAutoRotating;
+    this.classList.toggle('active',isAutoRotating);
+    this.setAttribute('aria-pressed',String(isAutoRotating));
+  };
+
+  /* resize handling */
+  window.addEventListener('resize',()=>{
+    globe.width(globeContainer.offsetWidth);
+    globe.height(globeContainer.offsetHeight);
+  });
+}
+
+function resetGlobeView(){
+  globe.pointOfView({lat:8,lng:92,altitude:1.85},900);
+}
+
+function flyToLocation(loc){
+  if(!globe) return;
+  const meta=LOC_AGG[loc];
+  if(!meta) return;
+  globe.pointOfView({lat:meta.lat,lng:meta.lng,altitude:0.9},1200);
+}
+
+/* ==================== FILTER MENU ==================== */
+const filterBtn=document.getElementById('filterBtn');
+const filterMenu=document.getElementById('filterMenu');
+const filterSearchEl=document.getElementById('filterSearch');
+const filterListEl=document.getElementById('filterList');
+
+function buildFilterList(query=''){
+  const q=query.trim().toLowerCase();
+  const filtered=LOC_LIST.filter(l=>{
+    if(!q) return true;
+    return l.name.toLowerCase().includes(q) || l.country.toLowerCase().includes(q);
+  });
+  document.getElementById('locCount').textContent=`${filtered.length} of ${LOC_LIST.length}`;
+  let html='';
+  filtered.forEach(l=>{
+    html+=`<button class="country-item" data-loc="${esc(l.name)}">
+      <span class="swatch" style="background:${l.color}"></span>
+      <div class="loc-info">
+        <div class="loc-name">${esc(l.short)}</div>
+        <div class="loc-country">${esc(l.flag)} ${esc(l.country)}</div>
+      </div>
+      <span class="count-badge">${l.records.length}</span>
+    </button>`;
+  });
+  if(filtered.length===0){
+    html='<div style="padding:20px;text-align:center;color:var(--muted);font-size:.85rem">No locations match your search.</div>';
+  }
+  filterListEl.innerHTML=html;
+  filterListEl.querySelectorAll('.country-item').forEach(b=>{
+    b.addEventListener('click',()=>{
+      const locName=b.dataset.loc;
+      flyToLocation(locName);
+      setTimeout(()=>openLocationModal(locName),700);
+      filterMenu.classList.remove('open');
+      filterBtn.setAttribute('aria-expanded','false');
+    });
+  });
+}
+filterBtn.addEventListener('click',(e)=>{
+  e.stopPropagation();
+  const open=filterMenu.classList.toggle('open');
+  filterBtn.setAttribute('aria-expanded',String(open));
+  if(open){ filterSearchEl.value=''; buildFilterList(); filterSearchEl.focus(); }
+});
+document.addEventListener('click',(e)=>{
+  if(!filterMenu.contains(e.target) && e.target!==filterBtn){
+    filterMenu.classList.remove('open');
+    filterBtn.setAttribute('aria-expanded','false');
+  }
+});
+filterSearchEl.addEventListener('input',()=>buildFilterList(filterSearchEl.value));
+
+/* ==================== COUNTRY LEGEND BELOW GLOBE ==================== */
+function buildCountryLegend(){
+  const countries={};
+  RECORDS.forEach(r=>{ countries[r.COUNTRY]=(countries[r.COUNTRY]||0)+1; });
+  const legend=document.getElementById('countryLegend');
+  let html='';
+  Object.entries(countries).sort((a,b)=>b[1]-a[1]).forEach(([c,cnt])=>{
+    const color=getCountryColor(c);
+    html+=`<button class="legend-item" data-country="${esc(c)}">
+      <span class="dot" style="background:${color}"></span>
+      ${getCountryFlag(c)} ${esc(c)}
+      <span class="lcount">${cnt}</span>
+    </button>`;
+  });
+  legend.innerHTML=html;
+  legend.querySelectorAll('.legend-item').forEach(b=>{
+    b.addEventListener('click',()=>{
+      /* Fly to the country's biggest location */
+      const country=b.dataset.country;
+      const top=LOC_LIST.find(l=>l.country===country);
+      if(top){ flyToLocation(top.name); setTimeout(()=>openLocationModal(top.name),700); }
+    });
+  });
+}
+
+/* ==================== MODAL ==================== */
+const overlay=document.getElementById('modalOverlay');
+
+function openLocationModal(locName){
+  const loc=LOC_AGG[locName];
+  if(!loc) return;
+
+  document.getElementById('modalHeader').style.background=
+    `linear-gradient(135deg, ${loc.color} 0%, ${darken(loc.color,22)} 100%)`;
+  document.getElementById('modalFlag').textContent=loc.flag;
+  document.getElementById('modalTitle').textContent=loc.short;
+  document.getElementById('modalSub').textContent=`${loc.country} · ${loc.records.length} record${loc.records.length===1?'':'s'} · ${loc.customers.size} customer${loc.customers.size===1?'':'s'}`;
+
+  document.getElementById('modalStats').innerHTML=`
+    <div class="stat"><div class="num">${loc.records.length}</div><div class="lbl">Records</div></div>
+    <div class="stat"><div class="num">${loc.qty}</div><div class="lbl">Total Qty</div></div>
+    <div class="stat"><div class="num">${loc.customers.size}</div><div class="lbl">Customers</div></div>
+    <div class="stat"><div class="num">${loc.projects.size||'—'}</div><div class="lbl">Projects</div></div>
+  `;
+
+  let tbl=`<div style="padding:12px 24px 6px;font-size:.78rem;color:var(--muted);font-weight:600">
+    <strong style="color:var(--blue-700)">Full project location:</strong> ${esc(loc.name)}
+  </div>`;
+  tbl+=`<table class="data-table"><thead><tr>
+    <th>S.NO</th><th>Job No</th><th>Customer ID</th><th>Customer Name</th>
+    <th>Product</th><th>Qty</th><th>Project Name</th>
+  </tr></thead><tbody>`;
+  loc.records.forEach(r=>{
+    tbl+=`<tr>
+      <td>${esc(r["S.NO"])}</td>
+      <td><strong>${esc(r["JOB NO"])}</strong></td>
+      <td>${esc(r["CUSTOMER ID"])}</td>
+      <td>${esc(r["CUSTOMER NAME"])}</td>
+      <td>${esc(r["PRODUCT"])}</td>
+      <td><span class="qty-pill">${esc(r["QTY"])}</span></td>
+      <td>${esc(r["PROJECT NAME"]||'—')}</td>
+    </tr>`;
+  });
+  tbl+='</tbody></table>';
+  document.getElementById('modalBody').innerHTML=tbl;
+  overlay.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  overlay.classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeModalOnOverlay(e){ if(e.target===overlay) closeModal(); }
+document.addEventListener('keydown',(e)=>{
+  if(e.key==='Escape'){ closeModal(); filterMenu.classList.remove('open'); }
+});
+
+/* ==================== DATA TABLE PAGE ==================== */
+const PAGE_SIZE=25;
+let currentPage=1;
+let filteredRecords=[...RECORDS];
+
+function populateSelects(){
+  const countrySel=document.getElementById('countrySelect');
+  const counts={};
+  RECORDS.forEach(r=>{ counts[r.COUNTRY]=(counts[r.COUNTRY]||0)+1; });
+  Object.keys(counts).sort().forEach(c=>{
+    const opt=document.createElement('option');
+    opt.value=c; opt.textContent=`${c} (${counts[c]})`;
+    countrySel.appendChild(opt);
+  });
+  const locSel=document.getElementById('locationSelect');
+  LOC_LIST.forEach(l=>{
+    const opt=document.createElement('option');
+    opt.value=l.name; opt.textContent=`${l.short} (${l.records.length})`;
+    locSel.appendChild(opt);
+  });
+}
+document.getElementById('searchInput').addEventListener('input',()=>{ currentPage=1; applyFilters(); });
+document.getElementById('countrySelect').addEventListener('change',()=>{ currentPage=1; applyFilters(); });
+document.getElementById('locationSelect').addEventListener('change',()=>{ currentPage=1; applyFilters(); });
+
+function applyFilters(){
+  const q=document.getElementById('searchInput').value.trim().toLowerCase();
+  const country=document.getElementById('countrySelect').value;
+  const loc=document.getElementById('locationSelect').value;
+  filteredRecords=RECORDS.filter(r=>{
+    if(country && r.COUNTRY!==country) return false;
+    if(loc && r["PROJECT LOCATION"]!==loc) return false;
+    if(!q) return true;
+    return ["JOB NO","CUSTOMER ID","CUSTOMER NAME","PRODUCT","PROJECT NAME","COUNTRY","PROJECT LOCATION"]
+      .some(k=>String(r[k]||'').toLowerCase().includes(q));
+  });
+  renderTable();
+}
+function renderTable(){
+  const wrap=document.getElementById('tableWrap');
+  if(filteredRecords.length===0){
+    wrap.innerHTML=`<div class="empty-state">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <p style="font-weight:700;color:var(--blue-700)">No records found</p>
+      <p style="font-size:.85rem;margin-top:4px">Try adjusting your search or filters.</p>
+    </div>`;
+    document.getElementById('pagination').innerHTML='';
+    return;
+  }
+  const totalPages=Math.max(1,Math.ceil(filteredRecords.length/PAGE_SIZE));
+  if(currentPage>totalPages) currentPage=totalPages;
+  const start=(currentPage-1)*PAGE_SIZE;
+  const slice=filteredRecords.slice(start,start+PAGE_SIZE);
+
+  let html=`<table class="data-table"><thead><tr>
+    <th>S.NO</th><th>Job No</th><th>Cust. ID</th><th>Customer Name</th>
+    <th>Country</th><th>Product</th><th>Qty</th><th>Project Name</th><th>Project Location</th>
+  </tr></thead><tbody>`;
+  slice.forEach(r=>{
+    const color=getCountryColor(r.COUNTRY);
+    const locShort=LOCATIONS[r["PROJECT LOCATION"]]?.short || r["PROJECT LOCATION"] || '—';
+    html+=`<tr>
+      <td>${esc(r["S.NO"])}</td>
+      <td><strong>${esc(r["JOB NO"])}</strong></td>
+      <td>${esc(r["CUSTOMER ID"])}</td>
+      <td>${esc(r["CUSTOMER NAME"])}</td>
+      <td><span style="display:inline-flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:${color};display:inline-block"></span><strong>${esc(r.COUNTRY)}</strong></span></td>
+      <td>${esc(r["PRODUCT"])}</td>
+      <td><span class="qty-pill">${esc(r["QTY"])}</span></td>
+      <td>${esc(r["PROJECT NAME"]||'—')}</td>
+      <td style="font-size:.78rem;color:var(--muted)">${esc(locShort)}</td>
+    </tr>`;
+  });
+  html+='</tbody></table>';
+  wrap.innerHTML=html;
+  renderPagination(totalPages);
+}
+function renderPagination(totalPages){
+  const pag=document.getElementById('pagination');
+  const start=(currentPage-1)*PAGE_SIZE+1;
+  const end=Math.min(currentPage*PAGE_SIZE,filteredRecords.length);
+  let btns='';
+  const max=7;
+  let s=Math.max(1,currentPage-Math.floor(max/2));
+  let e=Math.min(totalPages,s+max-1);
+  s=Math.max(1,e-max+1);
+  btns+=`<button onclick="goPage(${currentPage-1})" ${currentPage===1?'disabled':''}>‹</button>`;
+  for(let i=s;i<=e;i++) btns+=`<button class="${i===currentPage?'active':''}" onclick="goPage(${i})">${i}</button>`;
+  btns+=`<button onclick="goPage(${currentPage+1})" ${currentPage===totalPages?'disabled':''}>›</button>`;
+  pag.innerHTML=`<div class="info">Showing <strong>${start}–${end}</strong> of <strong>${filteredRecords.length}</strong> records</div><div class="page-btns">${btns}</div>`;
+}
+function goPage(p){
+  const total=Math.max(1,Math.ceil(filteredRecords.length/PAGE_SIZE));
+  currentPage=Math.min(Math.max(1,p),total);
+  renderTable();
+  document.getElementById('tableWrap').scrollTop=0;
+}
+
+/* ==================== INIT ==================== */
+buildCountryLegend();
+populateSelects();
+buildFilterList();
+/* defer globe init to give layout a frame */
+requestAnimationFrame(()=>requestAnimationFrame(buildGlobe));
+</script>
+</body>
+</html>
